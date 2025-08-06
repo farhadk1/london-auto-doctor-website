@@ -1,0 +1,231 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import Bounded from "@/components/common/bounded";
+import { ALL_SERVICES } from "@/lib/services-data";
+import { BUSINESS_INFO } from "@/lib/constants";
+import { ArrowRight, Clock, Phone, CheckCircle } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Automotive Electrical Services | London Auto Doctor",
+  description: "Professional mobile car electrician services across London. Battery replacement, electrical diagnostics, alternator repair, starter motor services, and emergency electrical repairs.",
+  keywords: [
+    "car electrician London",
+    "automotive electrical services",
+    "mobile car electrician",
+    "car battery replacement",
+    "alternator repair London",
+    "car electrical fault finding",
+    "emergency car electrician"
+  ]
+};
+
+export default function ServicesPage() {
+  const emergencyServices = ALL_SERVICES.filter(s => 
+    s.availability === 'emergency' || s.availability === 'both'
+  );
+  
+  return (
+    <div className="space-y-0">
+      {/* Hero Section */}
+      <Bounded className="bg-automotive-hero">
+        <div className="text-center space-y-6">
+          <div className="space-y-4">
+            <Badge variant="outline" className="border-automotive-orange text-automotive-orange">
+              Professional Services
+            </Badge>
+            
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground">
+              Automotive Electrical
+              <span className="block text-automotive-orange">
+                Services in London
+              </span>
+            </h1>
+            
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Professional mobile car electrician services across all London boroughs. 
+              From diagnostics to emergency repairs, we keep your vehicle running reliably.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-automotive-orange hover:bg-automotive-orange/90"
+            >
+              <Link href="/contact">Book Service Now</Link>
+            </Button>
+            
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg"
+            >
+              <Link href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}>
+                Emergency: {BUSINESS_INFO.phone}
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </Bounded>
+
+      {/* Emergency Services Highlight */}
+      <Bounded className="bg-automotive-gradient">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-4">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
+              Emergency Services Available 24/7
+            </h2>
+            <p className="text-muted-foreground">
+              Don&apos;t let electrical problems leave you stranded. Our emergency services 
+              are available around the clock across London.
+            </p>
+            <div className="flex items-center space-x-2 text-automotive-orange">
+              <Phone className="h-5 w-5" />
+              <span className="font-semibold">{BUSINESS_INFO.phone}</span>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {emergencyServices.slice(0, 4).map((service) => (
+              <Card key={service.id} className="border-automotive-orange/20">
+                <CardContent className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">{service.icon}</div>
+                    <div>
+                      <div className="font-semibold text-sm">{service.title}</div>
+                      <div className="text-xs text-muted-foreground">From £{service.pricing.from}</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Bounded>
+
+      {/* All Services Grid */}
+      <Bounded>
+        <div className="space-y-8">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Our Complete Service Range
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Professional automotive electrical services with transparent pricing 
+              and guaranteed workmanship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ALL_SERVICES.map((service) => (
+              <Card 
+                key={service.id} 
+                className="group hover:shadow-automotive-lg transition-all duration-300 hover:border-automotive-orange/50"
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-automotive-orange/10 flex items-center justify-center group-hover:bg-automotive-orange/20 transition-colors">
+                      <span className="text-2xl">{service.icon}</span>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm text-muted-foreground">From</div>
+                      <div className="text-xl font-bold text-automotive-orange">
+                        £{service.pricing.from}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <CardTitle className="text-xl font-display group-hover:text-automotive-orange transition-colors">
+                    {service.title}
+                  </CardTitle>
+                  
+                  <CardDescription>
+                    {service.shortDescription}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-1">
+                      <Clock className="h-4 w-4" />
+                      <span>{service.duration}</span>
+                    </div>
+                    <Badge 
+                      variant="outline" 
+                      className={service.availability === 'emergency' || service.availability === 'both' 
+                        ? "border-red-500 text-red-500" 
+                        : "border-blue-500 text-blue-500"
+                      }
+                    >
+                      {service.availability === 'emergency' ? 'Emergency' : 
+                       service.availability === 'both' ? '24/7' : 'Scheduled'}
+                    </Badge>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-foreground">Key Features:</div>
+                    <ul className="space-y-1">
+                      {service.features.slice(0, 3).map((feature, index) => (
+                        <li key={index} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                          <CheckCircle className="h-3 w-3 text-automotive-orange flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <Button 
+                    asChild 
+                    className="w-full group-hover:bg-automotive-orange group-hover:text-white transition-colors"
+                    variant="outline"
+                  >
+                    <Link href={`/services/${service.slug}`}>
+                      Learn More & Book
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Bounded>
+
+      {/* CTA Section */}
+      <Bounded className="bg-automotive-hero">
+        <div className="text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+            Ready to Book Your Service?
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-lg mx-auto">
+            Get your vehicle back to perfect electrical health with our professional services.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-automotive-orange hover:bg-automotive-orange/90"
+            >
+              <Link href="/contact">Book Service</Link>
+            </Button>
+            
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg"
+            >
+              <Link href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}>
+                Call {BUSINESS_INFO.phone}
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </Bounded>
+    </div>
+  );
+}

@@ -1,0 +1,513 @@
+// Comprehensive automotive electrical services data
+
+export interface ServiceCategory {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  shortDescription: string;
+  icon: string;
+  pricing: {
+    from: number;
+    to?: number;
+    unit: 'fixed' | 'hourly' | 'callout';
+  };
+  features: string[];
+  duration: string;
+  availability: 'emergency' | 'scheduled' | 'both';
+  commonIssues: string[];
+  process: string[];
+  warranty: string;
+}
+
+export const ALL_SERVICES: ServiceCategory[] = [
+  {
+    id: "battery-services",
+    title: "Battery Services",
+    slug: "battery-services",
+    description: "Comprehensive battery testing, replacement, and charging system diagnostics for all vehicle types. We use professional-grade equipment to accurately diagnose battery health and charging system performance.",
+    shortDescription: "Testing, replacement, and charging system diagnostics",
+    icon: "🔋",
+    pricing: {
+      from: 45,
+      to: 150,
+      unit: 'fixed'
+    },
+    features: [
+      "Professional battery testing with digital analyzers",
+      "Battery replacement for all vehicle types",
+      "Charging system diagnostics",
+      "Alternator output testing",
+      "Starter motor current draw testing",
+      "12-month warranty on batteries",
+      "Free battery health checks"
+    ],
+    duration: "30-60 minutes",
+    availability: "both",
+    commonIssues: [
+      "Car won't start",
+      "Battery warning light",
+      "Dim headlights",
+      "Slow engine cranking",
+      "Battery keeps dying",
+      "Corrosion on terminals"
+    ],
+    process: [
+      "Visual inspection of battery and terminals",
+      "Battery load testing with professional equipment",
+      "Charging system voltage testing",
+      "Alternator output and ripple testing", 
+      "Starter motor current draw analysis",
+      "Battery replacement if required",
+      "System verification and testing"
+    ],
+    warranty: "12 months on parts, 6 months on labor"
+  },
+  
+  {
+    id: "electrical-diagnostics",
+    title: "Electrical Diagnostics",
+    slug: "electrical-diagnostics", 
+    description: "Advanced electrical fault finding using professional diagnostic equipment. We specialize in tracing complex electrical problems across all vehicle systems including engine management, lighting, and comfort systems.",
+    shortDescription: "Advanced fault finding and electrical system analysis",
+    icon: "🔍",
+    pricing: {
+      from: 65,
+      to: 120,
+      unit: 'hourly'
+    },
+    features: [
+      "Professional diagnostic scanners",
+      "Multi-meter and oscilloscope testing",
+      "Wiring diagram consultation",
+      "ECU fault code reading and clearing",
+      "Circuit tracing and fault isolation",
+      "Comprehensive diagnostic reports",
+      "No-fault-found guarantee"
+    ],
+    duration: "1-3 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "Check engine lights",
+      "Intermittent electrical faults",
+      "Non-functioning components",
+      "Strange electrical behavior",
+      "ECU error codes",
+      "Blown fuses repeatedly"
+    ],
+    process: [
+      "Initial consultation and symptom analysis",
+      "Visual inspection of electrical systems",
+      "Diagnostic scanner connection",
+      "Circuit testing with professional tools",
+      "Fault isolation and root cause analysis",
+      "Repair recommendations and quotes",
+      "System verification after repairs"
+    ],
+    warranty: "3 months on diagnostic work"
+  },
+
+  {
+    id: "alternator-repair",
+    title: "Alternator Repair",
+    slug: "alternator-repair",
+    description: "Specialist alternator testing, repair, and replacement services. We service all types of alternators from standard units to high-output performance alternators for modified vehicles.",
+    shortDescription: "Charging system repair and alternator replacement",
+    icon: "⚡",
+    pricing: {
+      from: 85,
+      to: 350,
+      unit: 'fixed'
+    },
+    features: [
+      "Alternator output testing",
+      "Brush and slip ring replacement", 
+      "Diode testing and replacement",
+      "Bearing replacement service",
+      "High-output alternator installation",
+      "Charging system optimization",
+      "Performance alternator upgrades"
+    ],
+    duration: "1-2 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "Battery warning light",
+      "Dim headlights at idle",
+      "Battery not charging",
+      "Whining noise from alternator",
+      "Electrical accessories failing",
+      "Overcharging battery"
+    ],
+    process: [
+      "Charging system voltage testing",
+      "Alternator output and ripple testing",
+      "Visual inspection for damage",
+      "Belt tension and condition check",
+      "Internal component testing",
+      "Repair or replacement as needed",
+      "System verification and load testing"
+    ],
+    warranty: "12 months on replacement alternators"
+  },
+
+  {
+    id: "starter-motor",
+    title: "Starter Motor Services",
+    slug: "starter-motor",
+    description: "Complete starter motor testing, repair, and replacement services. We handle everything from simple solenoid issues to complete starter motor rebuilds and high-torque starter upgrades.",
+    shortDescription: "Starter motor testing, repair, and replacement",
+    icon: "🔧",
+    pricing: {
+      from: 75,
+      to: 280,
+      unit: 'fixed'
+    },
+    features: [
+      "Starter motor current draw testing",
+      "Solenoid testing and replacement",
+      "Brush and commutator servicing",
+      "High-torque starter installations",
+      "Flywheel ring gear inspection",
+      "Starting system optimization",
+      "Performance starter upgrades"
+    ],
+    duration: "1-2 hours", 
+    availability: "both",
+    commonIssues: [
+      "Engine won't crank",
+      "Clicking noise when starting",
+      "Grinding noise on startup",
+      "Slow cranking speed",
+      "Starter motor stuck engaged",
+      "Intermittent starting problems"
+    ],
+    process: [
+      "Battery and charging system check",
+      "Starter motor current draw testing",
+      "Solenoid operation testing",
+      "Visual inspection for damage",
+      "Flywheel ring gear inspection",
+      "Repair or replacement as required",
+      "Starting system verification"
+    ],
+    warranty: "12 months on replacement starters"
+  },
+
+  {
+    id: "lighting-systems",
+    title: "Lighting Systems",
+    slug: "lighting-systems", 
+    description: "Professional automotive lighting services including headlight restoration, LED conversions, and complete lighting system repairs. We work on all types of vehicle lighting from basic bulb replacement to complex HID and LED systems.",
+    shortDescription: "Headlights, indicators, and interior lighting repair",
+    icon: "💡",
+    pricing: {
+      from: 25,
+      to: 200,
+      unit: 'fixed'
+    },
+    features: [
+      "Headlight restoration and alignment",
+      "LED conversion and upgrades",
+      "HID system repair and replacement",
+      "Indicator and hazard light repair",
+      "Interior lighting solutions",
+      "Brake light and tail light repair",
+      "Custom lighting installations"
+    ],
+    duration: "30 minutes - 2 hours",
+    availability: "both",
+    commonIssues: [
+      "Dim or yellowed headlights",
+      "Blown bulbs and fuses",
+      "Flickering lights",
+      "HID ballast failures",
+      "LED driver failures",
+      "Indicator not working"
+    ],
+    process: [
+      "Visual inspection of all lighting",
+      "Electrical circuit testing",
+      "Bulb and fuse inspection",
+      "Switch and relay testing",
+      "Repair or replacement as needed",
+      "Headlight alignment check",
+      "System functionality verification"
+    ],
+    warranty: "6 months on parts and labor"
+  },
+
+  {
+    id: "security-systems",
+    title: "Security & Alarm Systems", 
+    slug: "security-systems",
+    description: "Professional installation and repair of vehicle security systems including alarms, immobilizers, and central locking systems. We specialize in both factory and aftermarket security solutions.",
+    shortDescription: "Alarm systems, immobilizers, and security installations",
+    icon: "🔒",
+    pricing: {
+      from: 95,
+      to: 450,
+      unit: 'fixed'
+    },
+    features: [
+      "Alarm system installation and repair",
+      "Immobilizer programming and repair",
+      "Central locking system repair",
+      "Remote control programming",
+      "Aftermarket security upgrades",
+      "Tracking system installation",
+      "Keyless entry solutions"
+    ],
+    duration: "1-4 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "Alarm not arming/disarming",
+      "Central locking not working",
+      "Key fob not responding",
+      "Immobilizer preventing start",
+      "False alarm triggers",
+      "Security light flashing"
+    ],
+    process: [
+      "Security system diagnostics",
+      "Key fob and remote testing",
+      "Central locking operation check",
+      "Immobilizer system testing",
+      "Wiring inspection and repair",
+      "Programming and calibration",
+      "Full system functionality test"
+    ],
+    warranty: "12 months on installations"
+  },
+
+  {
+    id: "air-conditioning",
+    title: "Air Conditioning Electrical",
+    slug: "air-conditioning", 
+    description: "Electrical diagnostics and repair for automotive air conditioning systems. We handle AC clutch problems, blower motor issues, and complete electrical system diagnostics for climate control.",
+    shortDescription: "AC electrical systems and climate control repair",
+    icon: "❄️",
+    pricing: {
+      from: 55,
+      to: 180,
+      unit: 'fixed'
+    },
+    features: [
+      "AC compressor clutch testing",
+      "Blower motor replacement",
+      "Climate control diagnostics", 
+      "Pressure switch testing",
+      "Wiring harness repair",
+      "Control panel repair",
+      "Sensor replacement"
+    ],
+    duration: "1-2 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "AC not turning on",
+      "Blower motor not working",
+      "Intermittent cooling",
+      "Climate control not responding",
+      "AC clutch not engaging",
+      "Temperature sensor faults"
+    ],
+    process: [
+      "Climate control system inspection",
+      "Electrical circuit testing",
+      "Compressor clutch operation test",
+      "Blower motor and resistor testing",
+      "Sensor and switch verification",
+      "Repair faulty components",
+      "System operation verification"
+    ],
+    warranty: "6 months on parts and labor"
+  },
+
+  {
+    id: "wiring-repairs",
+    title: "Wiring & Harness Repair",
+    slug: "wiring-repairs",
+    description: "Professional automotive wiring repair and custom harness fabrication. We repair damaged wiring, upgrade electrical systems, and create custom wiring solutions for modified vehicles.",
+    shortDescription: "Professional wiring repair and custom installations",
+    icon: "🔌",
+    pricing: {
+      from: 45,
+      to: 95,
+      unit: 'hourly'
+    },
+    features: [
+      "Wiring harness repair and replacement",
+      "Custom wiring fabrication",
+      "Connector repair and replacement",
+      "Circuit protection upgrades",
+      "Electrical system modifications",
+      "Power distribution upgrades",
+      "Professional wiring standards"
+    ],
+    duration: "1-4 hours",
+    availability: "scheduled", 
+    commonIssues: [
+      "Damaged wiring looms",
+      "Corroded connectors",
+      "Rodent damage to wiring",
+      "Blown fuses repeatedly",
+      "Electrical shorts",
+      "Poor connections"
+    ],
+    process: [
+      "Wiring inspection and testing",
+      "Fault location and isolation",
+      "Damaged section removal",
+      "Professional repair techniques",
+      "Connector cleaning/replacement",
+      "Circuit protection verification",
+      "Complete system testing"
+    ],
+    warranty: "6 months on repair work"
+  },
+
+  {
+    id: "dashboard-repairs",
+    title: "Dashboard & Instrument Repair",
+    slug: "dashboard-repairs",
+    description: "Specialized repair services for dashboard electronics, instrument clusters, and warning light systems. We handle everything from faulty gauges to complete dashboard electrical rebuilds.",
+    shortDescription: "Instrument cluster and dashboard electrical repair",
+    icon: "📊",
+    pricing: {
+      from: 85,
+      to: 250,
+      unit: 'fixed'
+    },
+    features: [
+      "Instrument cluster repair",
+      "Gauge calibration and testing",
+      "Warning light diagnostics", 
+      "Dashboard electrical repair",
+      "LCD/LED display repair",
+      "Switch and control repair",
+      "Dashboard wiring repair"
+    ],
+    duration: "2-4 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "Gauges not working",
+      "Warning lights staying on",
+      "Dashboard lights not working",
+      "Speedometer not working",
+      "Fuel gauge inaccurate",
+      "Display screen blank"
+    ],
+    process: [
+      "Dashboard system diagnostics",
+      "Instrument cluster testing",
+      "Individual gauge verification",
+      "Wiring and connector inspection",
+      "Component repair or replacement",
+      "Calibration and programming",
+      "Full functionality verification"
+    ],
+    warranty: "6 months on repair work"
+  },
+
+  {
+    id: "trailer-electrics",
+    title: "Trailer & Towbar Electrics",
+    slug: "trailer-electrics",
+    description: "Professional trailer electrical installation and repair services. We install towbar electrics, repair trailer connections, and ensure your towing setup meets all safety requirements.",
+    shortDescription: "Towbar wiring and trailer electrical systems",
+    icon: "🚛",
+    pricing: {
+      from: 95,
+      to: 280,
+      unit: 'fixed'
+    },
+    features: [
+      "Towbar electrical installation",
+      "13-pin and 7-pin socket fitting",
+      "Trailer board repair",
+      "Bypass relay installation",
+      "LED trailer light conversion",
+      "Caravan electrical systems",
+      "Wiring compliance checks"
+    ],
+    duration: "2-4 hours",
+    availability: "scheduled",
+    commonIssues: [
+      "Trailer lights not working",
+      "Blown vehicle fuses when towing",
+      "Indicators not working with trailer",
+      "Trailer socket damaged",
+      "Wiring harness damage",
+      "LED compatibility issues"
+    ],
+    process: [
+      "Vehicle electrical system assessment",
+      "Towbar mounting point inspection",
+      "Wiring route planning",
+      "Professional installation",
+      "Bypass relay configuration",
+      "Testing with trailer connected",
+      "Compliance verification"
+    ],
+    warranty: "12 months on installations"
+  },
+
+  {
+    id: "emergency-services",
+    title: "Emergency Electrical Services",
+    slug: "emergency",
+    description: "24/7 emergency automotive electrical services across London. We provide rapid response for electrical breakdowns, jump starts, and urgent repairs to get you back on the road quickly.",
+    shortDescription: "24/7 emergency automotive electrical repairs",
+    icon: "🚨",
+    pricing: {
+      from: 75,
+      to: 150,
+      unit: 'callout'
+    },
+    features: [
+      "24/7 emergency callout",
+      "Jump start services",
+      "Emergency battery replacement",
+      "Roadside electrical diagnostics",
+      "Temporary repair solutions",
+      "Priority response times",
+      "Mobile workshop equipped"
+    ],
+    duration: "30 minutes - 2 hours",
+    availability: "emergency",
+    commonIssues: [
+      "Complete electrical failure",
+      "Dead battery situations",
+      "Alternator failure",
+      "Starter motor failure",
+      "Blown main fuses",
+      "Emergency breakdown"
+    ],
+    process: [
+      "Rapid response deployment",
+      "On-site safety assessment",
+      "Quick diagnostic evaluation",
+      "Emergency repair or replacement",
+      "Temporary solution if needed",
+      "Get vehicle mobile again",
+      "Follow-up permanent repair scheduling"
+    ],
+    warranty: "Emergency repairs: 30 days"
+  }
+];
+
+// Helper functions for service data
+export function getServiceBySlug(slug: string): ServiceCategory | undefined {
+  return ALL_SERVICES.find(service => service.slug === slug);
+}
+
+export function getEmergencyServices(): ServiceCategory[] {
+  return ALL_SERVICES.filter(service => 
+    service.availability === 'emergency' || service.availability === 'both'
+  );
+}
+
+export function getScheduledServices(): ServiceCategory[] {
+  return ALL_SERVICES.filter(service => 
+    service.availability === 'scheduled' || service.availability === 'both'
+  );
+}
