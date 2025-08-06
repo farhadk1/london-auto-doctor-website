@@ -2,11 +2,60 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Merriweather Sans Font Family */
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('/fonts/MerriweatherSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-inter);
+  --font-sans: 'Merriweather Sans', ui-sans-serif, system-ui;
+  --font-mono: ui-monospace, 'SF Mono', Consolas, 'Liberation Mono', Menlo;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,7 +99,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.68 0.18 25);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -84,18 +133,18 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.68 0.2 25);
+  --primary: oklch(0.68 0.18 25);
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.68 0.2 25);
+  --accent: oklch(0.68 0.18 25);
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 18%);
-  --ring: oklch(0.68 0.2 25);
+  --ring: oklch(0.68 0.18 25);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -119,14 +168,20 @@
     @apply bg-background text-foreground;
   }
   
-  /* Custom automotive styling */
+  /* Custom automotive styling with Merriweather Sans */
   .font-body {
-    font-family: var(--font-inter), ui-sans-serif, system-ui;
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-weight: 400;
   }
   
   .font-display {
-    font-family: var(--font-inter), ui-sans-serif, system-ui;
-    font-weight: 600;
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-weight: 700;
+  }
+  
+  .font-heading {
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-weight: 800;
   }
   
   /* Automotive gradient backgrounds */
@@ -140,15 +195,15 @@
   
   /* Automotive accent styles */
   .text-automotive-orange {
-    color: oklch(0.68 0.2 25);
+    color: oklch(0.68 0.18 25);
   }
   
   .bg-automotive-orange {
-    background-color: oklch(0.68 0.2 25);
+    background-color: oklch(0.68 0.18 25);
   }
   
   .border-automotive-orange {
-    border-color: oklch(0.68 0.2 25);
+    border-color: oklch(0.68 0.18 25);
   }
   
   /* Professional shadows for automotive theme */

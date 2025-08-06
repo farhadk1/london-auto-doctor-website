@@ -19,7 +19,7 @@ export default function Hero() {
           
           {/* Main Heading */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-foreground leading-tight">
               Auto Electrical
               <span className="block text-automotive-orange">
                 Services & Repair

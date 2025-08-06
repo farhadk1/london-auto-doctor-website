@@ -53,9 +53,9 @@ const config: Config = {
         },
         // Automotive brand colors
         automotive: {
-          orange: "#ff6b35",
-          "orange-dark": "#e55a2e",
-          "orange-light": "#ff8c5a",
+          orange: "#FF5E14",
+          "orange-dark": "#e54b0a",
+          "orange-light": "#ff7a3f",
           dark: "#1a1a1a",
           "dark-lighter": "#2a2a2a",
           steel: "#4a5568",
@@ -63,8 +63,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        body: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
-        display: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
+        sans: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
+        body: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
+        display: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
+        heading: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
       },
       borderRadius: {
         lg: "var(--radius)",

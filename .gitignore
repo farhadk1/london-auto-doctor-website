@@ -40,11 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# fonts (use web fonts instead)
-*.ttf
-*.woff
-*.woff2
-*.otf
+# fonts (allow local fonts in public/fonts)
+# *.ttf
+# *.woff
+# *.woff2
+# *.otf
 
 # IDE files
 .vscode/
