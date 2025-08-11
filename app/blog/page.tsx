@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Bounded from "@/components/common/bounded";
+import LightSection from "@/components/common/light-section";
 import BlogCard from "@/components/blog/blog-card";
 import BlogSidebar from "@/components/blog/blog-sidebar";
 import { blogPosts, getFeaturedPosts, getAllCategories } from "@/lib/blog-data";
@@ -25,22 +26,30 @@ export default function BlogPage() {
   );
 
   return (
-    <div className="py-16">
+    <>
+    {/* Hero Section */}
+    <div className="hero-bg-blog py-24 md:py-32">
       <Bounded>
-        <div className="grid lg:grid-cols-4 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-3 space-y-12">
-            {/* Hero Section */}
-            <div className="text-center space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                Automotive Electrical Blog
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Expert insights, practical tips, and professional advice from London&apos;s 
-                trusted mobile car electrician. Stay informed about automotive electrical 
-                systems, maintenance, and troubleshooting.
-              </p>
-            </div>
+        <div className="text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
+            Automotive Electrical Blog
+          </h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Expert insights, practical tips, and professional advice from London's 
+            trusted mobile car electrician. Stay informed about automotive electrical 
+            systems, maintenance, and troubleshooting.
+          </p>
+        </div>
+      </Bounded>
+    </div>
+    
+    {/* Blog Content - Light Section */}
+    <LightSection>
+      <Bounded>
+        <div className="py-16">
+          <div className="grid lg:grid-cols-4 gap-12">
+            {/* Main Content */}
+            <div className="lg:col-span-3 space-y-12">
 
             {/* Featured Posts */}
             {featuredPosts.length > 0 && (
@@ -90,12 +99,14 @@ export default function BlogPage() {
             </section>
           </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <BlogSidebar />
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <BlogSidebar />
+            </div>
           </div>
         </div>
       </Bounded>
-    </div>
+    </LightSection>
+    </>
   );
 }

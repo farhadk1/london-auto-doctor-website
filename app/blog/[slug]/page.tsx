@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Bounded from "@/components/common/bounded";
+import LightSection from "@/components/common/light-section";
 import BlogContent from "@/components/blog/blog-content";
 import BlogSidebar from "@/components/blog/blog-sidebar";
 import { getBlogPost, blogPosts } from "@/lib/blog-data";
@@ -91,21 +92,53 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      <div className="py-16">
-        <Bounded>
-          <div className="grid lg:grid-cols-4 gap-12">
-            {/* Main Content */}
-            <div className="lg:col-span-3">
-              <BlogContent post={post} />
+      {/* Blog Post Header */}
+      {post.headerImage && (
+        <div 
+          className="blog-hero-bg py-24 md:py-32"
+          style={{ backgroundImage: `url("${post.headerImage}")` }}
+        >
+          <Bounded>
+            <div className="text-center space-y-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
+                {post.title}
+              </h1>
+              <div className="flex flex-wrap items-center justify-center gap-4 text-gray-200">
+                <time dateTime={post.publishedDate} className="text-sm">
+                  {new Date(post.publishedDate).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  })}
+                </time>
+                <span className="text-sm">•</span>
+                <span className="text-sm">{post.readTime} min read</span>
+                <span className="text-sm">•</span>
+                <span className="text-sm capitalize">{post.category.replace('-', ' ')}</span>
+              </div>
             </div>
+          </Bounded>
+        </div>
+      )}
+      
+      {/* Blog Content */}
+      <LightSection>
+        <Bounded>
+          <div className="py-16">
+            <div className="grid lg:grid-cols-4 gap-12">
+              {/* Main Content */}
+              <div className="lg:col-span-3">
+                <BlogContent post={post} />
+              </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <BlogSidebar currentPost={post} />
+              {/* Sidebar */}
+              <div className="lg:col-span-1">
+                <BlogSidebar currentPost={post} />
+              </div>
             </div>
           </div>
         </Bounded>
-      </div>
+      </LightSection>
     </>
   );
 }

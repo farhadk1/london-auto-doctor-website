@@ -1,37 +1,39 @@
+"use client";
+
 import type { Metadata } from "next";
+import Link from "next/link";
 import Bounded from "@/components/common/bounded";
+import ParallaxSection from "@/components/common/parallax-section";
+import LightSection from "@/components/common/light-section";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Wrench, Clock, Award, MapPin, Phone, Mail } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "About Us | London Auto Doctor - 15+ Years Automotive Electrical Experience",
-  description:
-    "Meet London Auto Doctor's expert mobile car electrician with 15+ years of experience in automotive electrical repairs, diagnostics, and emergency services across London.",
-  openGraph: {
-    title: "About Us | London Auto Doctor - 15+ Years Automotive Electrical Experience",
-    description:
-      "Meet London Auto Doctor's expert mobile car electrician with 15+ years of experience in automotive electrical repairs, diagnostics, and emergency services across London.",
-  },
-};
+// Metadata moved to separate metadata file since this is now a client component
 
 export default function AboutPage() {
   return (
-    <div className="py-16">
+    <>
+    {/* Hero Section */}
+    <div className="hero-bg-about py-24 md:py-32">
       <Bounded>
-        <div className="space-y-16">
-          {/* Hero Section */}
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              About London Auto Doctor
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Your trusted mobile car electrician with over 15 years of experience 
-              providing professional automotive electrical services across London.
-            </p>
-          </div>
-
-          {/* Personal Story Section */}
+        <div className="text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
+            About London Auto Doctor
+          </h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Your trusted mobile car electrician with over 15 years of experience 
+            providing professional automotive electrical services across London.
+          </p>
+        </div>
+      </Bounded>
+    </div>
+    
+    {/* Our Story Section - Light */}
+    <LightSection>
+      <Bounded>
+        <div className="py-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground">
@@ -94,8 +96,14 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </Bounded>
+    </LightSection>
 
-          {/* Expertise Section */}
+    {/* Areas of Expertise Section - Light */}
+    <LightSection>
+      <Bounded>
+        <div className="py-16">
           <div className="space-y-8">
             <h2 className="text-3xl font-bold text-center">
               Areas of Expertise
@@ -139,67 +147,81 @@ export default function AboutPage() {
               </Card>
             </div>
           </div>
+        </div>
+      </Bounded>
+    </LightSection>
 
-          {/* Specializations */}
-          <div className="space-y-8">
+    {/* Technical Specializations - Normal */}
+    <Bounded>
+      <div className="py-16">
+        <div className="space-y-8">
             <h2 className="text-3xl font-bold text-center">
               Technical Specializations
             </h2>
             
-            <div className="flex flex-wrap justify-center gap-3">
-              {[
-                "Battery Management Systems",
-                "Alternator Repair",
-                "Starter Motor Service",
-                "ECU Diagnostics",
-                "Wiring Harness Repair",
-                "Security System Installation",
-                "LED Lighting Upgrades",
-                "Air Conditioning Electrical",
-                "Fault Code Analysis",
-                "Component Testing",
-                "Circuit Analysis",
-                "Electrical Troubleshooting"
-              ].map((specialization) => (
-                <Badge key={specialization} variant="secondary" className="text-sm">
-                  {specialization}
-                </Badge>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "Battery Management Systems",
+              "Alternator Repair",
+              "Starter Motor Service",
+              "ECU Diagnostics",
+              "Wiring Harness Repair",
+              "Security System Installation",
+              "LED Lighting Upgrades",
+              "Air Conditioning Electrical",
+              "Fault Code Analysis",
+              "Component Testing",
+              "Circuit Analysis",
+              "Electrical Troubleshooting"
+            ].map((specialization) => (
+              <Badge key={specialization} variant="secondary" className="text-sm">
+                {specialization}
+              </Badge>
+            ))}
           </div>
+        </div>
+      </div>
+    </Bounded>
 
-          {/* Service Promise */}
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="p-8">
-              <div className="text-center space-y-6">
-                <h2 className="text-2xl font-bold">
-                  Our Service Promise
-                </h2>
-                <div className="grid md:grid-cols-3 gap-6 text-sm">
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Transparent Pricing</h3>
-                    <p className="text-muted-foreground">
-                      No hidden costs. Clear, upfront pricing with detailed explanations
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Quality Guarantee</h3>
-                    <p className="text-muted-foreground">
-                      All work backed by comprehensive warranties and quality assurance
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Professional Service</h3>
-                    <p className="text-muted-foreground">
-                      Respectful, professional service with attention to detail
-                    </p>
-                  </div>
+    {/* Service Promise - Normal */}
+    <Bounded>
+      <div className="py-16">
+        <Card className="bg-primary/5 border-primary/20">
+          <CardContent className="p-8">
+            <div className="text-center space-y-6">
+              <h2 className="text-2xl font-bold">
+                Our Service Promise
+              </h2>
+              <div className="grid md:grid-cols-3 gap-6 text-sm">
+                <div className="space-y-2">
+                  <h3 className="font-semibold">Transparent Pricing</h3>
+                  <p className="text-muted-foreground">
+                    No hidden costs. Clear, upfront pricing with detailed explanations
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-semibold">Quality Guarantee</h3>
+                  <p className="text-muted-foreground">
+                    All work backed by comprehensive warranties and quality assurance
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-semibold">Professional Service</h3>
+                  <p className="text-muted-foreground">
+                    Respectful, professional service with attention to detail
+                  </p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </Bounded>
 
-          {/* Contact Section */}
+    {/* Contact Section - Light */}
+    <LightSection>
+      <Bounded>
+        <div className="py-16">
           <div className="text-center space-y-6">
             <h2 className="text-3xl font-bold">
               Ready to Get Started?
@@ -227,6 +249,51 @@ export default function AboutPage() {
           </div>
         </div>
       </Bounded>
-    </div>
+    </LightSection>
+
+    {/* Parallax CTA Section */}
+    <ParallaxSection 
+      backgroundImage="/wimages/Last%20Section/pexels-introspectivedsgn-6075509.jpg"
+    >
+      <div className="text-center space-y-8 text-white">
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white">
+            Experience You Can
+            <span className="block text-automotive-orange">Trust</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+            15+ years of professional automotive electrical expertise. 
+            Licensed, insured, and ready to solve your vehicle&apos;s electrical challenges.
+          </p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button 
+            asChild 
+            size="lg" 
+            className="bg-automotive-orange hover:bg-automotive-orange/90 text-white font-semibold px-8 shadow-lg"
+          >
+            <Link href="/contact">Get Your Quote</Link>
+          </Button>
+          
+          <Button 
+            asChild 
+            variant="outline" 
+            size="lg"
+            className="px-8 border-white/30 text-white hover:bg-white/10 shadow-lg"
+          >
+            <Link href="tel:08001234567">Call Now</Link>
+          </Button>
+        </div>
+
+        <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-300 pt-6 border-t border-white/20">
+          <div>✓ Licensed & Insured</div>
+          <div>✓ 15+ Years Experience</div>
+          <div>✓ Mobile Service</div>
+          <div>✓ Emergency Available</div>
+        </div>
+      </div>
+    </ParallaxSection>
+    </>
   );
 }

@@ -30,39 +30,41 @@ export default function ContactPage() {
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <Bounded className="bg-automotive-hero">
-        <div className="text-center space-y-6">
-          <div className="space-y-4">
-            <Badge variant="outline" className="border-automotive-orange text-automotive-orange">
-              Get In Touch
-            </Badge>
-            
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-              Contact London
-              <span className="block text-automotive-orange">
-                Auto Doctor
-              </span>
-            </h1>
-            
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to get your vehicle&apos;s electrical system back to perfect health? 
-              Contact our expert mobile car electricians today.
-            </p>
-          </div>
+      <div className="hero-bg-contact py-24 md:py-32">
+        <Bounded>
+          <div className="text-center space-y-6">
+            <div className="space-y-4">
+              <Badge variant="outline" className="border-white text-white bg-white/10 backdrop-blur-sm">
+                Get In Touch
+              </Badge>
+              
+              <h1 className="text-4xl md:text-5xl font-display font-bold text-white">
+                Contact London
+                <span className="block text-automotive-orange">
+                  Auto Doctor
+                </span>
+              </h1>
+              
+              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+                Ready to get your vehicle's electrical system back to perfect health? 
+                Contact our expert mobile car electricians today.
+              </p>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="flex items-center justify-center space-x-2 bg-automotive-orange text-white px-6 py-3 rounded-full font-semibold">
-              <Phone className="h-5 w-5" />
-              <span>{BUSINESS_INFO.phone}</span>
-            </div>
-            
-            <div className="flex items-center justify-center space-x-2 bg-card border border-border px-6 py-3 rounded-full">
-              <Mail className="h-5 w-5 text-automotive-orange" />
-              <span className="text-foreground">{BUSINESS_INFO.email}</span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex items-center justify-center space-x-2 bg-automotive-orange text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+                <Phone className="h-5 w-5" />
+                <span>{BUSINESS_INFO.phone}</span>
+              </div>
+              
+              <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full">
+                <Mail className="h-5 w-5 text-automotive-orange" />
+                <span>{BUSINESS_INFO.email}</span>
+              </div>
             </div>
           </div>
-        </div>
-      </Bounded>
+        </Bounded>
+      </div>
 
       {/* Contact Information Cards */}
       <Bounded>

@@ -99,7 +99,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.68 0.18 25);
+  --primary: #E8413A;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -129,22 +129,22 @@
 .dark {
   --background: oklch(0.11 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.15 0 0);
+  --card: #1a1a1a;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.68 0.18 25);
+  --primary: #E8413A;
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.68 0.18 25);
+  --accent: #E8413A;
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 18%);
-  --ring: oklch(0.68 0.18 25);
+  --ring: #E8413A;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -184,6 +184,28 @@
     font-weight: 800;
   }
   
+  /* New typography system */
+  .text-title {
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-size: 57px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  
+  .text-subtitle {
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  
+  .text-content {
+    font-family: 'Merriweather Sans', ui-sans-serif, system-ui;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
   /* Automotive gradient backgrounds */
   .bg-automotive-gradient {
     background: linear-gradient(135deg, oklch(0.11 0 0) 0%, oklch(0.15 0 0) 100%);
@@ -195,15 +217,15 @@
   
   /* Automotive accent styles */
   .text-automotive-orange {
-    color: oklch(0.68 0.18 25);
+    color: #E8413A;
   }
   
   .bg-automotive-orange {
-    background-color: oklch(0.68 0.18 25);
+    background-color: #E8413A;
   }
   
   .border-automotive-orange {
-    border-color: oklch(0.68 0.18 25);
+    border-color: #E8413A;
   }
   
   /* Professional shadows for automotive theme */
@@ -213,5 +235,508 @@
   
   .shadow-automotive-lg {
     box-shadow: 0 10px 15px -3px oklch(0 0 0 / 0.1), 0 4px 6px -2px oklch(0 0 0 / 0.05);
+  }
+  
+  /* Light contrasting section styling */
+  .section-light {
+    background-color: #fafafa;
+    color: oklch(0.15 0 0);
+  }
+  
+  /* Light section text styles */
+  .section-light .text-foreground {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  .section-light .text-muted-foreground {
+    color: oklch(0.45 0 0) !important;
+  }
+  
+  /* Light section card styles */
+  .section-light .bg-card {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
+  }
+  
+  /* Light section border styles */
+  .section-light .border-border {
+    border-color: oklch(0.85 0 0);
+  }
+  
+  /* Light section button adjustments */
+  .section-light .btn-light-variant {
+    background-color: oklch(0.15 0 0);
+    color: oklch(0.98 0 0);
+    border: 1px solid oklch(0.15 0 0);
+  }
+  
+  .section-light .btn-light-variant:hover {
+    background-color: oklch(0.25 0 0);
+    border-color: oklch(0.25 0 0);
+  }
+  
+  .section-light .btn-light-outline {
+    background-color: transparent;
+    color: oklch(0.15 0 0);
+    border: 1px solid oklch(0.15 0 0);
+  }
+  
+  .section-light .btn-light-outline:hover {
+    background-color: oklch(0.15 0 0);
+    color: oklch(0.98 0 0);
+  }
+  
+  /* Fix ghost buttons in light section */
+  .section-light button[data-slot="button"],
+  .section-light a[data-slot="button"] {
+    background-color: oklch(0.95 0 0) !important;
+    color: oklch(0.15 0 0) !important;
+    border: 1px solid oklch(0.85 0 0) !important;
+  }
+  
+  .section-light button[data-slot="button"]:hover,
+  .section-light a[data-slot="button"]:hover {
+    background-color: oklch(0.90 0 0) !important;
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  .section-light .group:hover button[data-slot="button"],
+  .section-light .group:hover a[data-slot="button"] {
+    background-color: oklch(0.88 0 0) !important;
+    color: #E8413A !important;
+  }
+}
+
+@layer components {
+  /* Card shadow that overrides Tailwind shadow utilities */
+  .bg-card,
+  .bg-card.shadow-sm,
+  .bg-card.shadow-md,
+  .bg-card.shadow-lg {
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.2) !important;
+    transition: box-shadow 0.3s ease-in-out !important;
+  }
+  
+  /* Subtle glow effect on card hover */
+  .bg-card:hover,
+  .bg-card.shadow-sm:hover,
+  .bg-card.shadow-md:hover,
+  .bg-card.shadow-lg:hover {
+    box-shadow: 
+      0 2px 12px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(232, 65, 58, 0.15),
+      0 0 40px rgba(232, 65, 58, 0.08) !important;
+  }
+  
+  /* Light section card hover glow */
+  .section-light .bg-card:hover {
+    box-shadow: 
+      0 2px 12px rgba(0, 0, 0, 0.15),
+      0 0 20px rgba(232, 65, 58, 0.15),
+      0 0 40px rgba(232, 65, 58, 0.08) !important;
+  }
+  
+  /* Light card components styling */
+  .bg-card\/50.backdrop-blur,
+  .bg-card\/50 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  /* Text readability for light cards */
+  .bg-card\/50 .text-foreground,
+  .bg-card\/50 h1,
+  .bg-card\/50 h2, 
+  .bg-card\/50 h3,
+  .bg-card\/50 h4,
+  .bg-card\/50 h5,
+  .bg-card\/50 h6 {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  .bg-card\/50 .text-muted-foreground,
+  .bg-card\/50 p,
+  .bg-card\/50 .text-sm {
+    color: oklch(0.45 0 0) !important;
+  }
+  
+  /* Card header and title specific styling */
+  .bg-card\/50 [data-slot="header"],
+  .bg-card\/50 [data-slot="header"] *,
+  .bg-card\/50 [data-slot="title"],
+  .bg-card\/50 [data-slot="title"] *,
+  .bg-card\/50 .card-header,
+  .bg-card\/50 .card-header *,
+  .bg-card\/50 .card-title,
+  .bg-card\/50 .card-title * {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  /* Card description text */
+  .bg-card\/50 [data-slot="description"],
+  .bg-card\/50 .card-description {
+    color: oklch(0.45 0 0) !important;
+  }
+  
+  /* Shadcn UI Card component specific styling */
+  .bg-card\/50.backdrop-blur [role="heading"],
+  .bg-card\/50.backdrop-blur .font-semibold,
+  .bg-card\/50.backdrop-blur .font-bold,
+  .bg-card\/50.backdrop-blur .text-2xl,
+  .bg-card\/50.backdrop-blur .text-xl,
+  .bg-card\/50.backdrop-blur .text-lg {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  /* Blog page specific styling in light sections */
+  .section-light h2,
+  .section-light h3,
+  .section-light h4,
+  .section-light .text-2xl,
+  .section-light .text-xl,
+  .section-light .text-lg,
+  .section-light .font-bold,
+  .section-light .font-semibold {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  /* Blog sidebar and widget titles */
+  .section-light .sidebar-title,
+  .section-light .widget-title,
+  .section-light section h2,
+  .section-light section h3,
+  .section-light div h3,
+  .section-light div h2 {
+    color: oklch(0.15 0 0) !important;
+  }
+  
+  /* Blog post titles and links */
+  .section-light a,
+  .section-light a:hover {
+    color: oklch(0.2 0 0) !important;
+  }
+  
+  .section-light a:hover {
+    color: #E8413A !important;
+  }
+  
+  /* Category cards and content */
+  .section-light .border-border {
+    border-color: oklch(0.85 0 0) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+  }
+  
+  .section-light .border-border:hover {
+    border-color: #E8413A !important;
+  }
+  
+  /* Categories and Popular Tags hover styling in sidebar */
+  .section-light aside a:hover,
+  .section-light aside .rounded-md:hover {
+    background-color: #E8413A !important;
+    color: white !important;
+  }
+  
+  .section-light aside a:hover span,
+  .section-light aside a:hover *,
+  .section-light aside .rounded-md:hover span,
+  .section-light aside .rounded-md:hover * {
+    color: white !important;
+  }
+  
+  /* Badge elements in sidebar - Popular Tags */
+  .section-light aside .badge:hover,
+  .section-light aside [class*="badge"]:hover {
+    background-color: #E8413A !important;
+    color: white !important;
+    border-color: #E8413A !important;
+    border-radius: 0.375rem !important; /* rounded-md */
+  }
+  
+  /* Popular Tags - specific targeting for flex-wrap container badges */
+  .section-light aside .flex-wrap a:hover .badge,
+  .section-light aside .flex-wrap [class*="badge"]:hover {
+    background-color: #E8413A !important;
+    color: white !important;
+    border-color: #E8413A !important;
+    border-radius: 0.375rem !important;
+  }
+  
+  /* Ensure tag text stays white on hover */
+  .section-light aside .flex-wrap a:hover .badge *,
+  .section-light aside .flex-wrap [class*="badge"]:hover * {
+    color: white !important;
+  }
+  
+  /* Horizontal testimonials scroll animation */
+  @keyframes testimonialScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Hero car animation - floating motion */
+  @keyframes heroFloat {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Gear rotation animation */
+  @keyframes gearRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Light fade in/out animation */
+  @keyframes lightFade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Emergency light flash animation */
+  @keyframes emergencyFlash {
+    0%, 20%, 40%, 60%, 80%, 100% {
+      opacity: 0;
+      filter: none;
+    }
+    10%, 30% {
+      opacity: 1;
+      filter: hue-rotate(220deg) brightness(1.5) saturate(2);
+    }
+    50%, 70% {
+      opacity: 1;
+      filter: hue-rotate(0deg) brightness(1.5) saturate(2);
+    }
+  }
+  
+  /* Hero car animation container */
+  .hero-car-animation {
+    animation: heroFloat 4s ease-in-out infinite;
+  }
+  
+  /* Animated car layers */
+  .car-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .car-base {
+    background-image: url('/images/car.png');
+    z-index: 1;
+  }
+  
+  .car-gear {
+    background-image: url('/images/gear.png');
+    z-index: 2;
+    animation: gearRotate 8s linear infinite;
+    top: 8.5%;
+  }
+  
+  .car-light-left {
+    background-image: url('/images/left-light.png');
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    left: -12%;
+  }
+  
+  .car-light-right {
+    background-image: url('/images/right-light.png');
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    left: 12%;
+  }
+  
+  /* Hover effects for lights */
+  .hero-car-container:hover .car-light-left,
+  .hero-car-container:hover .car-light-right {
+    opacity: 1;
+  }
+  
+  /* Emergency flash animation class */
+  .car-light-emergency {
+    animation: emergencyFlash 2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  
+  .testimonials-carousel {
+    animation: testimonialScroll 45s linear infinite;
+  }
+  
+  .testimonials-carousel:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Parallax Section Effects - Simplified and Robust */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+  
+  /* Content layer above background */
+  .parallax-content {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Overlay layer */
+  .parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  
+  /* Mobile fallback */
+  @media (max-width: 768px) {
+    .parallax-bg {
+      background-attachment: scroll;
+      height: 100%;
+    }
+  }
+  
+  /* Debug helper to ensure background is working */
+  .parallax-debug {
+    border: 2px solid red !important;
+  }
+  
+  /* Hero Section Background Images */
+  .hero-bg-about {
+    background-image: url('/wimages/About%20Hero%20Section/pexels-daniel-andraski-197681005-13065689.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-bg-blog {
+    background-image: url('/wimages/Blog%20Page%20Hero%20Section/pexels-daniel-bestjumpstarterreview-com-3750282-5572271.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-bg-contact {
+    background-image: url('/wimages/Contact%20hero%20section/pexels-freek-wolsink-508219-28444550.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-bg-services {
+    background-image: url('/wimages/Services%20Hero%20Section/pexels-introspectivedsgn-5438616.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .hero-bg-faq {
+    background-image: url('/wimages/FAQ%20hero%20section/pexels-max-3737334-5562431.jpg');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Blog post header background */
+  .blog-hero-bg {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Hero background overlay for better text readability */
+  .hero-bg-about::before,
+  .hero-bg-blog::before,
+  .hero-bg-contact::before,
+  .hero-bg-services::before,
+  .hero-bg-faq::before,
+  .blog-hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  
+  /* Hero content above overlay */
+  .hero-bg-about > *,
+  .hero-bg-blog > *,
+  .hero-bg-contact > *,
+  .hero-bg-services > *,
+  .hero-bg-faq > *,
+  .blog-hero-bg > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Mobile fallback for hero backgrounds */
+  @media (max-width: 768px) {
+    .hero-bg-about,
+    .hero-bg-blog,
+    .hero-bg-contact,
+    .hero-bg-services,
+    .hero-bg-faq,
+    .blog-hero-bg {
+      background-attachment: scroll;
+    }
   }
 }

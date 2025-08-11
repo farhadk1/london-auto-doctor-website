@@ -1,19 +1,17 @@
+"use client";
+
 import type { Metadata } from "next";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Bounded from "@/components/common/bounded";
+import ParallaxSection from "@/components/common/parallax-section";
+import LightSection from "@/components/common/light-section";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Clock, Phone, Wrench, AlertCircle } from "lucide-react";
+import { getParallaxImage } from "@/lib/parallax-images";
 
-export const metadata: Metadata = {
-  title: "FAQ | London Auto Doctor - Common Car Electrical Questions",
-  description:
-    "Frequently asked questions about automotive electrical services, car battery problems, diagnostics, and mobile car electrician services in London.",
-  openGraph: {
-    title: "FAQ | London Auto Doctor - Common Car Electrical Questions", 
-    description:
-      "Frequently asked questions about automotive electrical services, car battery problems, diagnostics, and mobile car electrician services in London.",
-  },
-};
 
 const faqCategories = [
   {
@@ -107,22 +105,30 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
-  return (
-    <div className="py-16">
-      <Bounded>
-        <div className="space-y-12">
-          {/* Hero Section */}
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Find answers to common questions about our mobile car electrician services, 
-              diagnostic procedures, and automotive electrical repairs.
-            </p>
-          </div>
+  const pathname = usePathname();
+  const backgroundImage = getParallaxImage(pathname);
 
-          {/* FAQ Categories */}
+  return (
+    <>
+    {/* Hero Section */}
+    <div className="hero-bg-faq py-24 md:py-32">
+      <Bounded>
+        <div className="text-center space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+            Find answers to common questions about our mobile car electrician services, 
+            diagnostic procedures, and automotive electrical repairs.
+          </p>
+        </div>
+      </Bounded>
+    </div>
+
+    {/* FAQ Categories - Light Section */}
+    <LightSection>
+      <Bounded>
+        <div className="py-16">
           <div className="space-y-8">
             {faqCategories.map((category, categoryIndex) => (
               <Card key={categoryIndex} className="bg-card/50 backdrop-blur">
@@ -154,53 +160,62 @@ export default function FAQPage() {
               </Card>
             ))}
           </div>
-
-          {/* Emergency Contact */}
-          <Card className="bg-destructive/5 border-destructive/20">
-            <CardContent className="p-8 text-center">
-              <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-              <h2 className="text-2xl font-bold mb-2">Emergency Services Available</h2>
-              <p className="text-muted-foreground mb-6">
-                Stranded with electrical problems? We offer emergency mobile services 
-                for urgent situations outside normal business hours.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Badge variant="destructive" className="text-lg px-4 py-2">
-                  Emergency Hotline: 0800 123 4567
-                </Badge>
-                <p className="text-sm text-muted-foreground">
-                  Additional charges apply for out-of-hours emergency services
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Still Have Questions */}
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="p-8 text-center">
-              <h2 className="text-2xl font-bold mb-4">
-                Still Have Questions?
-              </h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Don&apos;t see your question answered here? Get in touch with London Auto Doctor 
-                directly. We&apos;re happy to discuss your specific automotive electrical needs 
-                and provide personalized advice.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <div className="flex items-center justify-center space-x-2">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <span className="font-semibold">0800 123 4567</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <span className="font-semibold">Mon-Fri 8AM-6PM, Sat 9AM-2PM</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </Bounded>
-    </div>
+    </LightSection>
+
+    {/* Emergency Contact - Normal */}
+    <Bounded>
+      <div className="py-16">
+        <Card className="bg-destructive/5 border-destructive/20">
+          <CardContent className="p-8 text-center">
+            <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
+            <h2 className="text-2xl font-bold mb-2">Emergency Services Available</h2>
+            <p className="text-muted-foreground mb-6">
+              Stranded with electrical problems? We offer emergency mobile services 
+              for urgent situations outside normal business hours.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Badge variant="destructive" className="text-lg px-4 py-2">
+                Emergency Hotline: 0800 123 4567
+              </Badge>
+              <p className="text-sm text-muted-foreground">
+                Additional charges apply for out-of-hours emergency services
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </Bounded>
+
+    {/* Still Have Questions - Parallax Section */}
+    <ParallaxSection 
+      backgroundImage={backgroundImage}
+    >
+      <div className="text-center space-y-8 text-white">
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white">
+            Still Have Questions?
+          </h2>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+            Don't see your question answered here? Get in touch with London Auto Doctor 
+            directly. We're happy to discuss your specific automotive electrical needs 
+            and provide personalized advice.
+          </p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row justify-center gap-6">
+          <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+            <Phone className="h-5 w-5 text-automotive-orange" />
+            <span className="font-semibold text-white">0800 123 4567</span>
+          </div>
+          <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2 border border-white/20">
+            <Clock className="h-5 w-5 text-automotive-orange" />
+            <span className="font-semibold text-white">Mon-Fri 8AM-6PM, Sat 9AM-2PM</span>
+          </div>
+        </div>
+      </div>
+    </ParallaxSection>
+    </>
   );
 }

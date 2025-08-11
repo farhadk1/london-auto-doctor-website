@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Zap, Phone, Mail, Clock, MapPin } from "lucide-react";
 
@@ -38,18 +39,14 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company info */}
             <div className="space-y-4">
-              <Link href="/" className="flex items-center space-x-2">
-                <div className="flex items-center justify-center w-10 h-10 bg-automotive-orange rounded-lg">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-display font-bold text-lg text-foreground">
-                    London Auto Doctor
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Mobile Car Electrician
-                  </div>
-                </div>
+              <Link href="/" className="flex items-start">
+                <Image
+                  src="/LondonAutoDoctor(Website Header).png"
+                  alt="London Auto Doctor - Mobile Car Electrician"
+                  width={400}
+                  height={120}
+                  className="h-32 w-auto"
+                />
               </Link>
               
               <p className="text-sm text-muted-foreground">

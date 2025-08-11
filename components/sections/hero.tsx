@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +8,39 @@ import { BUSINESS_INFO } from "@/lib/constants";
 import { Phone, MapPin, Clock, Shield } from "lucide-react";
 
 export default function Hero() {
+  const playCarHonk = () => {
+    // Play car horn sound
+    const audio = new Audio('/car-honk.mp3');
+    audio.volume = 0.5;
+    audio.play().catch((error) => {
+      console.log('Audio play failed:', error);
+    });
+
+    // Trigger emergency light flash
+    const leftLight = document.querySelector('.car-light-left') as HTMLElement;
+    const rightLight = document.querySelector('.car-light-right') as HTMLElement;
+    
+    if (leftLight && rightLight) {
+      // Remove existing animation classes
+      leftLight.classList.remove('car-light-emergency');
+      rightLight.classList.remove('car-light-emergency');
+      
+      // Force reflow to restart animation
+      leftLight.offsetHeight;
+      rightLight.offsetHeight;
+      
+      // Add emergency flash animation
+      leftLight.classList.add('car-light-emergency');
+      rightLight.classList.add('car-light-emergency');
+      
+      // Remove animation class after animation completes
+      setTimeout(() => {
+        leftLight.classList.remove('car-light-emergency');
+        rightLight.classList.remove('car-light-emergency');
+      }, 2000);
+    }
+  };
+
   return (
     <Bounded className="bg-automotive-hero">
       <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-8 lg:gap-12">
@@ -82,38 +117,51 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Image/Visual */}
-        <div className="relative w-full max-w-lg">
-          <div className="aspect-square rounded-2xl bg-gradient-to-br from-automotive-orange/20 to-automotive-orange/5 border border-automotive-orange/20 p-8">
-            <div className="w-full h-full flex items-center justify-center">
-              {/* Placeholder for automotive image */}
-              <div className="text-center space-y-4">
-                <div className="w-32 h-32 mx-auto rounded-full bg-automotive-orange/20 flex items-center justify-center">
-                  <div className="text-4xl">⚡</div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-lg font-display font-semibold text-foreground">
-                    Mobile Car Electrician
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Professional automotive electrical services at your location
-                  </p>
-                </div>
-              </div>
-            </div>
+        {/* Animated Car Visual */}
+        <div className="relative w-full max-w-lg hero-car-container">
+          <div 
+            className="hero-car-animation relative w-full aspect-square cursor-pointer hover:scale-105 transition-transform duration-200"
+            onClick={playCarHonk}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                playCarHonk();
+              }
+            }}
+            aria-label="Click to play car horn sound"
+          >
+            {/* Car Base Layer */}
+            <div className="car-layer car-base"></div>
+            
+            {/* Rotating Gear Layer */}
+            <div className="car-layer car-gear"></div>
+            
+            {/* Left Light Layer - Invisible by default, visible on hover */}
+            <div className="car-layer car-light-left"></div>
+            
+            {/* Right Light Layer - Invisible by default, visible on hover */}
+            <div className="car-layer car-light-right"></div>
           </div>
           
           {/* Floating badges */}
-          <div className="absolute -top-4 -right-4">
-            <Badge className="bg-automotive-orange text-white">
+          <div className="absolute -top-4 -right-4 z-10">
+            <Badge className="bg-automotive-orange text-white shadow-lg">
               Emergency Available
             </Badge>
           </div>
           
-          <div className="absolute -bottom-4 -left-4">
-            <Badge variant="outline" className="border-automotive-orange text-automotive-orange bg-background">
+          <div className="absolute -bottom-4 -left-4 z-10">
+            <Badge variant="outline" className="border-automotive-orange text-automotive-orange bg-background shadow-lg">
               Licensed & Insured
             </Badge>
+          </div>
+          
+          {/* Interactive hint */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="text-xs text-muted-foreground text-center bg-background/80 backdrop-blur-sm rounded-full px-3 py-1 border border-border">
+              Hover to see lights • Click for horn & emergency flash
+            </div>
           </div>
         </div>
       </div>

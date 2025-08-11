@@ -53,9 +53,9 @@ const config: Config = {
         },
         // Automotive brand colors
         automotive: {
-          orange: "#FF5E14",
-          "orange-dark": "#e54b0a",
-          "orange-light": "#ff7a3f",
+          orange: "#E8413A",
+          "orange-dark": "#d63529",
+          "orange-light": "#f05449",
           dark: "#1a1a1a",
           "dark-lighter": "#2a2a2a",
           steel: "#4a5568",
@@ -68,6 +68,11 @@ const config: Config = {
         display: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
         heading: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
       },
+      fontSize: {
+        'title': ['57px', { lineHeight: '1.1', fontWeight: '800' }],
+        'subtitle': ['29px', { lineHeight: '1.3', fontWeight: '400' }],
+        'content': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -77,6 +82,7 @@ const config: Config = {
         "fade-in": "fadeIn 0.5s ease-in-out",
         "slide-in-right": "slideInRight 0.3s ease-out",
         "slide-in-left": "slideInLeft 0.3s ease-out",
+        "scroll-horizontal": "scrollHorizontal 60s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -90,6 +96,10 @@ const config: Config = {
         slideInLeft: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(0)" },
+        },
+        scrollHorizontal: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
       },
     },

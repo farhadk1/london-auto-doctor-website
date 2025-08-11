@@ -130,5 +130,53 @@ export const TESTIMONIALS = [
     rating: 5,
     text: "Emergency call-out on Sunday evening when my headlights failed. Quick response and fixed the problem efficiently. Great peace of mind!",
     service: "Emergency Services"
+  },
+  {
+    id: 4,
+    name: "James Mitchell",
+    location: "Kensington, London", 
+    rating: 5,
+    text: "Dead battery on a cold Monday morning. Called London Auto Doctor and they were at my office within 30 minutes. New battery fitted and tested perfectly.",
+    service: "Battery Services"
+  },
+  {
+    id: 5,
+    name: "Lisa Chen",
+    location: "Hackney, London",
+    rating: 5,
+    text: "Fantastic service! My dashboard warning lights were driving me crazy. They diagnosed the issue quickly and explained everything clearly. Very professional.",
+    service: "Electrical Diagnostics"
+  },
+  {
+    id: 6,
+    name: "David Roberts",
+    location: "Greenwich, London",
+    rating: 5,
+    text: "Starter motor died on me in a car park. These guys came out same day, replaced it efficiently and at a fair price. Will definitely use again!",
+    service: "Starter Motor"
+  },
+  {
+    id: 7,
+    name: "Rachel Green",
+    location: "Wandsworth, London",
+    rating: 5,
+    text: "Called them out for intermittent electrical issues. Very thorough diagnosis and fixed multiple problems I didn't even know existed. Excellent value!",
+    service: "Electrical Diagnostics"
+  },
+  {
+    id: 8,
+    name: "Michael Brown",
+    location: "Tower Hamlets, London",
+    rating: 5,
+    text: "My headlights kept flickering and it was dangerous to drive at night. London Auto Doctor sorted it out perfectly and now they're brighter than ever!",
+    service: "Lighting Systems"
+  },
+  {
+    id: 9,
+    name: "Sophie Taylor",
+    location: "Richmond, London",
+    rating: 5,
+    text: "Amazing emergency service! Car broke down at 11pm and they came out to help. Fixed the charging system issue and got me home safely. True lifesavers!",
+    service: "Emergency Services"
   }
 ];

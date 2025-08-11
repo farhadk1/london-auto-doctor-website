@@ -14,6 +14,7 @@ export interface BlogPost {
   };
   readTime: number;
   featured: boolean;
+  headerImage?: string;
 }
 
 export const blogCategories = [
@@ -86,6 +87,7 @@ If you notice any of these signs, contact London Auto Doctor for professional ba
     },
     readTime: 5,
     featured: true,
+    headerImage: "/wimages/Blog Post Photos/10 WArning Sign your battery is failing-BLOG.jpg",
   },
   {
     slug: "understanding-car-electrical-diagnostics",
@@ -193,6 +195,7 @@ Contact London Auto Doctor for professional electrical diagnostics using state-o
     },
     readTime: 7,
     featured: true,
+    headerImage: "/wimages/Blog Post Photos/Understanding Car Electrical Diagnostics-BLOG.jpg",
   },
   {
     slug: "alternator-problems-symptoms-solutions",
@@ -313,6 +316,7 @@ For professional alternator diagnosis and repair, contact London Auto Doctor. Ou
     },
     readTime: 6,
     featured: false,
+    headerImage: "/wimages/Blog Post Photos/Alternator Problems Symptoms-BLOG.jpg",
   },
   {
     slug: "winter-car-electrical-maintenance-guide",
@@ -445,6 +449,7 @@ For comprehensive winter electrical preparation and service, contact London Auto
     },
     readTime: 8,
     featured: false,
+    headerImage: "/wimages/Blog Post Photos/Car Electrical Maintenance-BLOG.jpg",
   },
   {
     slug: "diy-electrical-troubleshooting-safety-guide",
@@ -605,6 +610,7 @@ Remember: DIY troubleshooting should supplement, not replace, professional servi
     },
     readTime: 9,
     featured: false,
+    headerImage: "/wimages/Blog Post Photos/DIY Electrical Troubleshooting-BLOG.jpg",
   }
 ];
 
