@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Bounded from "@/components/common/bounded";
+import LightSection from "@/components/common/light-section";
 import ContactForm from "@/components/forms/contact-form";
 import { BUSINESS_INFO } from "@/lib/constants";
 import { 
@@ -30,7 +31,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-0">
       {/* Hero Section */}
-      <div className="hero-bg-contact py-24 md:py-32">
+      <div className="hero-bg-contact py-12 md:py-16">
         <Bounded>
           <div className="text-center space-y-6">
             <div className="space-y-4">
@@ -220,7 +221,8 @@ export default function ContactPage() {
       </Bounded>
 
       {/* FAQ Section */}
-      <Bounded className="bg-automotive-gradient">
+      <LightSection>
+        <Bounded>
         <div className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">
@@ -268,7 +270,8 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-      </Bounded>
+        </Bounded>
+      </LightSection>
     </div>
   );
 }

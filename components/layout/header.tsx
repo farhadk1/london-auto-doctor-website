@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -19,42 +19,26 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
-        <div className={cn(
-          "flex items-center justify-between",
-          "h-16", // Fixed height on mobile
-          "md:transition-all md:duration-300 md:ease-in-out", // Animation only on md+
-          isScrolled ? "md:h-20" : "md:h-40" // Dynamic height only on md+
-        )}>
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/LondonAutoDoctor(Website Header).png"
+              src="/Electric-Heartbeat.png"
               alt="London Auto Doctor - Mobile Car Electrician"
-              width={600}
-              height={180}
-              className={cn(
-                "w-auto",
-                "h-12", // Fixed small size on mobile
-                "md:transition-all md:duration-300 md:ease-in-out", // Animation only on md+
-                isScrolled ? "md:h-12" : "md:h-36" // Dynamic size only on md+
-              )}
+              width={32}
+              height={32}
+              className="w-auto h-8"
               priority
             />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-foreground">London Auto Doctor</span>
+              <span className="text-xs text-muted-foreground">Mobile Car Electrician</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

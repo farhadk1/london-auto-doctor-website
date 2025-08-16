@@ -14,7 +14,7 @@ export default function CTASection() {
 
   return (
     <ParallaxSection 
-      backgroundImage={backgroundImage}
+      backgroundImage="/wimages/Last%20Section/pexels-introspectivedsgn-6075509.jpg"
       overlayOpacity={0.6}
     >
       <div className="text-center space-y-8 text-white">

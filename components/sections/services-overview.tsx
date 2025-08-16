@@ -57,7 +57,7 @@ export default function ServicesOverview() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center space-y-6 bg-automotive-gradient rounded-2xl p-8 md:p-12">
+        <div className="text-center space-y-6 bg-card rounded-2xl p-8 md:p-12">
           <div className="space-y-2">
             <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground">
               Need Emergency Automotive Electrical Service?

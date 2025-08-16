@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Bounded from "@/components/common/bounded";
-import LightSection from "@/components/common/light-section";
 import BlogContent from "@/components/blog/blog-content";
 import BlogSidebar from "@/components/blog/blog-sidebar";
 import { getBlogPost, blogPosts } from "@/lib/blog-data";
@@ -95,7 +94,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Blog Post Header */}
       {post.headerImage && (
         <div 
-          className="blog-hero-bg py-24 md:py-32"
+          className="blog-hero-bg py-12 md:py-16"
           style={{ backgroundImage: `url("${post.headerImage}")` }}
         >
           <Bounded>
@@ -122,9 +121,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       )}
       
       {/* Blog Content */}
-      <LightSection>
-        <Bounded>
-          <div className="py-16">
+      <Bounded>
+        <div className="py-16">
             <div className="grid lg:grid-cols-4 gap-12">
               {/* Main Content */}
               <div className="lg:col-span-3">
@@ -136,9 +134,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <BlogSidebar currentPost={post} />
               </div>
             </div>
-          </div>
-        </Bounded>
-      </LightSection>
+        </div>
+      </Bounded>
     </>
   );
 }

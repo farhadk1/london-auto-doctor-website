@@ -99,7 +99,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #E8413A;
+  --primary: #F3625D;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -133,18 +133,18 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #E8413A;
+  --primary: #F3625D;
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.2 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: #E8413A;
+  --accent: #F3625D;
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 18%);
-  --ring: #E8413A;
+  --ring: #F3625D;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -217,15 +217,15 @@
   
   /* Automotive accent styles */
   .text-automotive-orange {
-    color: #E8413A;
+    color: #F3625D;
   }
   
   .bg-automotive-orange {
-    background-color: #E8413A;
+    background-color: #F3625D;
   }
   
   .border-automotive-orange {
-    border-color: #E8413A;
+    border-color: #F3625D;
   }
   
   /* Professional shadows for automotive theme */
@@ -304,7 +304,7 @@
   .section-light .group:hover button[data-slot="button"],
   .section-light .group:hover a[data-slot="button"] {
     background-color: oklch(0.88 0 0) !important;
-    color: #E8413A !important;
+    color: #F3625D !important;
   }
 }
 
@@ -420,7 +420,7 @@
   }
   
   .section-light a:hover {
-    color: #E8413A !important;
+    color: #F3625D !important;
   }
   
   /* Category cards and content */
@@ -430,13 +430,13 @@
   }
   
   .section-light .border-border:hover {
-    border-color: #E8413A !important;
+    border-color: #F3625D !important;
   }
   
   /* Categories and Popular Tags hover styling in sidebar */
   .section-light aside a:hover,
   .section-light aside .rounded-md:hover {
-    background-color: #E8413A !important;
+    background-color: #F3625D !important;
     color: white !important;
   }
   
@@ -450,18 +450,18 @@
   /* Badge elements in sidebar - Popular Tags */
   .section-light aside .badge:hover,
   .section-light aside [class*="badge"]:hover {
-    background-color: #E8413A !important;
+    background-color: #F3625D !important;
     color: white !important;
-    border-color: #E8413A !important;
+    border-color: #F3625D !important;
     border-radius: 0.375rem !important; /* rounded-md */
   }
   
   /* Popular Tags - specific targeting for flex-wrap container badges */
   .section-light aside .flex-wrap a:hover .badge,
   .section-light aside .flex-wrap [class*="badge"]:hover {
-    background-color: #E8413A !important;
+    background-color: #F3625D !important;
     color: white !important;
-    border-color: #E8413A !important;
+    border-color: #F3625D !important;
     border-radius: 0.375rem !important;
   }
   
@@ -596,7 +596,7 @@
   .parallax-container {
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: auto;
   }
   
   .parallax-bg {
@@ -616,7 +616,7 @@
   .parallax-content {
     position: relative;
     z-index: 10;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items: center;
   }
@@ -648,7 +648,6 @@
   /* Hero Section Background Images */
   .hero-bg-about {
     background-image: url('/wimages/About%20Hero%20Section/pexels-daniel-andraski-197681005-13065689.jpg');
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -657,7 +656,6 @@
   
   .hero-bg-blog {
     background-image: url('/wimages/Blog%20Page%20Hero%20Section/pexels-daniel-bestjumpstarterreview-com-3750282-5572271.jpg');
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -666,7 +664,6 @@
   
   .hero-bg-contact {
     background-image: url('/wimages/Contact%20hero%20section/pexels-freek-wolsink-508219-28444550.jpg');
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -675,7 +672,6 @@
   
   .hero-bg-services {
     background-image: url('/wimages/Services%20Hero%20Section/pexels-introspectivedsgn-5438616.jpg');
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -684,7 +680,6 @@
   
   .hero-bg-faq {
     background-image: url('/wimages/FAQ%20hero%20section/pexels-max-3737334-5562431.jpg');
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -693,7 +688,6 @@
   
   /* Blog post header background */
   .blog-hero-bg {
-    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -713,7 +707,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
   }
   
@@ -728,15 +722,4 @@
     z-index: 2;
   }
   
-  /* Mobile fallback for hero backgrounds */
-  @media (max-width: 768px) {
-    .hero-bg-about,
-    .hero-bg-blog,
-    .hero-bg-contact,
-    .hero-bg-services,
-    .hero-bg-faq,
-    .blog-hero-bg {
-      background-attachment: scroll;
-    }
-  }
 }

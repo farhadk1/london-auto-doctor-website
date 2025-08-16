@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Bounded from "@/components/common/bounded";
-import LightSection from "@/components/common/light-section";
 import BlogCard from "@/components/blog/blog-card";
 import BlogSidebar from "@/components/blog/blog-sidebar";
 import { blogPosts, getFeaturedPosts, getAllCategories } from "@/lib/blog-data";
@@ -28,7 +27,7 @@ export default function BlogPage() {
   return (
     <>
     {/* Hero Section */}
-    <div className="hero-bg-blog py-24 md:py-32">
+    <div className="hero-bg-blog py-12 md:py-16">
       <Bounded>
         <div className="text-center space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
@@ -43,10 +42,9 @@ export default function BlogPage() {
       </Bounded>
     </div>
     
-    {/* Blog Content - Light Section */}
-    <LightSection>
-      <Bounded>
-        <div className="py-16">
+    {/* Blog Content */}
+    <Bounded>
+      <div className="py-16">
           <div className="grid lg:grid-cols-4 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-3 space-y-12">
@@ -104,9 +102,8 @@ export default function BlogPage() {
               <BlogSidebar />
             </div>
           </div>
-        </div>
-      </Bounded>
-    </LightSection>
+      </div>
+    </Bounded>
     </>
   );
 }

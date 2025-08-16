@@ -1,11 +1,36 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import Bounded from "@/components/common/bounded";
 import LightSection from "@/components/common/light-section";
 import { TESTIMONIALS } from "@/lib/constants";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Testimonials() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: -400,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: 400,
+        behavior: "smooth"
+      });
+    }
+  };
+
+
   return (
     <LightSection>
       <Bounded>
@@ -30,8 +55,31 @@ export default function Testimonials() {
         </div>
 
         {/* Horizontal Scrolling Testimonials */}
-        <div className="overflow-hidden py-4">
-          <div className="flex gap-6 testimonials-carousel">
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 hover:bg-background border-automotive-orange text-automotive-orange hover:text-automotive-orange"
+            onClick={scrollLeft}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          
+          <Button
+            variant="outline"
+            size="icon"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 hover:bg-background border-automotive-orange text-automotive-orange hover:text-automotive-orange"
+            onClick={scrollRight}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+
+          <div 
+            ref={carouselRef}
+            className="overflow-hidden py-4 px-12"
+          >
+            <div className="flex gap-6 testimonials-carousel">
             {/* First set of testimonials */}
             {TESTIMONIALS.map((testimonial) => (
               <div key={testimonial.id} className="flex-shrink-0 w-80">
@@ -120,6 +168,7 @@ export default function Testimonials() {
                 </Card>
               </div>
             ))}
+            </div>
           </div>
         </div>
 

@@ -111,7 +111,7 @@ export default function FAQPage() {
   return (
     <>
     {/* Hero Section */}
-    <div className="hero-bg-faq py-24 md:py-32">
+    <div className="hero-bg-faq py-12 md:py-16">
       <Bounded>
         <div className="text-center space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
@@ -167,7 +167,7 @@ export default function FAQPage() {
     {/* Emergency Contact - Normal */}
     <Bounded>
       <div className="py-16">
-        <Card className="bg-destructive/5 border-destructive/20">
+        <Card>
           <CardContent className="p-8 text-center">
             <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
             <h2 className="text-2xl font-bold mb-2">Emergency Services Available</h2>
@@ -190,7 +190,7 @@ export default function FAQPage() {
 
     {/* Still Have Questions - Parallax Section */}
     <ParallaxSection 
-      backgroundImage={backgroundImage}
+      backgroundImage="/wimages/Last%20Section/pexels-introspectivedsgn-6075509.jpg"
     >
       <div className="text-center space-y-8 text-white">
         <div className="space-y-4">

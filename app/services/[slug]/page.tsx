@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -72,7 +73,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 rounded-lg bg-automotive-orange/20 flex items-center justify-center">
-                  <span className="text-3xl">{service.icon}</span>
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 object-contain"
+                  />
                 </div>
                 <Badge 
                   variant="outline" 
@@ -191,7 +198,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       </Bounded>
 
       {/* Service Process */}
-      <Bounded className="section-light">
+      <Bounded>
         <div className="space-y-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
@@ -229,7 +236,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <Card key={relatedService.id} className="group hover:border-automotive-orange/50 transition-colors">
                 <CardHeader>
                   <div className="w-10 h-10 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-2">
-                    <span className="text-xl">{relatedService.icon}</span>
+                    <Image
+                      src={relatedService.icon}
+                      alt={relatedService.title}
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 object-contain"
+                    />
                   </div>
                   <CardTitle className="text-lg">{relatedService.title}</CardTitle>
                   <CardDescription>{relatedService.shortDescription}</CardDescription>

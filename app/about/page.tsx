@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Bounded from "@/components/common/bounded";
 import ParallaxSection from "@/components/common/parallax-section";
 import LightSection from "@/components/common/light-section";
@@ -16,7 +17,7 @@ export default function AboutPage() {
   return (
     <>
     {/* Hero Section */}
-    <div className="hero-bg-about py-24 md:py-32">
+    <div className="hero-bg-about py-12 md:py-16">
       <Bounded>
         <div className="text-center space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
@@ -30,9 +31,8 @@ export default function AboutPage() {
       </Bounded>
     </div>
     
-    {/* Our Story Section - Light */}
-    <LightSection>
-      <Bounded>
+    {/* Our Story Section - Normal */}
+    <Bounded>
         <div className="py-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -60,7 +60,7 @@ export default function AboutPage() {
               </div>
             </div>
             
-            <Card className="bg-card/50 backdrop-blur">
+            <Card>
               <CardContent className="p-6">
                 <div className="space-y-6">
                   <div className="flex items-center space-x-3">
@@ -96,13 +96,39 @@ export default function AboutPage() {
               </CardContent>
             </Card>
           </div>
+          
+          {/* About Images */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="relative h-64 rounded-xl overflow-hidden">
+              <Image
+                src="/wimages/About 3Images/pexels-19x14-8478220.jpg"
+                alt="Automotive electrical service"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden">
+              <Image
+                src="/wimages/About 3Images/pexels-19x14-8478262.jpg"
+                alt="Professional car electrician"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden">
+              <Image
+                src="/wimages/About 3Images/pexels-olly-3807277.jpg"
+                alt="Mobile car electrical services"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
-      </Bounded>
-    </LightSection>
+    </Bounded>
 
-    {/* Areas of Expertise Section - Light */}
-    <LightSection>
-      <Bounded>
+    {/* Areas of Expertise Section - Normal */}
+    <Bounded>
         <div className="py-16">
           <div className="space-y-8">
             <h2 className="text-3xl font-bold text-center">
@@ -148,11 +174,11 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </Bounded>
-    </LightSection>
+    </Bounded>
 
-    {/* Technical Specializations - Normal */}
-    <Bounded>
+    {/* Technical Specializations - Light */}
+    <LightSection>
+      <Bounded>
       <div className="py-16">
         <div className="space-y-8">
             <h2 className="text-3xl font-bold text-center">
@@ -181,10 +207,12 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </Bounded>
+      </Bounded>
+    </LightSection>
 
-    {/* Service Promise - Normal */}
-    <Bounded>
+    {/* Service Promise - Light */}
+    <LightSection>
+      <Bounded>
       <div className="py-16">
         <Card className="bg-primary/5 border-primary/20">
           <CardContent className="p-8">
@@ -216,11 +244,11 @@ export default function AboutPage() {
           </CardContent>
         </Card>
       </div>
-    </Bounded>
+      </Bounded>
+    </LightSection>
 
-    {/* Contact Section - Light */}
-    <LightSection>
-      <Bounded>
+    {/* Contact Section - Normal */}
+    <Bounded>
         <div className="py-16">
           <div className="text-center space-y-6">
             <h2 className="text-3xl font-bold">
@@ -248,8 +276,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </Bounded>
-    </LightSection>
+    </Bounded>
 
     {/* Parallax CTA Section */}
     <ParallaxSection 

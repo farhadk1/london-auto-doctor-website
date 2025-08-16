@@ -53,9 +53,9 @@ const config: Config = {
         },
         // Automotive brand colors
         automotive: {
-          orange: "#E8413A",
-          "orange-dark": "#d63529",
-          "orange-light": "#f05449",
+          orange: "#F3625D",
+          "orange-dark": "#e04a44",
+          "orange-light": "#f67a76",
           dark: "#1a1a1a",
           "dark-lighter": "#2a2a2a",
           steel: "#4a5568",

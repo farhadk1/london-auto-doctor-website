@@ -2,6 +2,7 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,7 @@ export default function ServicesPage() {
     <>
     <div className="space-y-0">
       {/* Hero Section */}
-      <div className="hero-bg-services py-24 md:py-32">
+      <div className="hero-bg-services py-12 md:py-16">
         <Bounded>
           <div className="text-center space-y-6">
             <div className="space-y-4">
@@ -91,8 +92,14 @@ export default function ServicesPage() {
               >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-automotive-orange/10 flex items-center justify-center group-hover:bg-automotive-orange/20 transition-colors">
-                      <span className="text-2xl">{service.icon}</span>
+                    <div className="w-16 h-16 rounded-lg bg-automotive-orange/10 flex items-center justify-center group-hover:bg-automotive-orange/20 transition-colors">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        width={50}
+                        height={50}
+                        className="w-12 h-12 object-contain"
+                      />
                     </div>
                     <div className="text-right">
                       <div className="text-sm text-muted-foreground">From</div>
@@ -180,7 +187,15 @@ export default function ServicesPage() {
               <Card key={service.id} className="border-automotive-orange/20">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="text-2xl">{service.icon}</div>
+                    <div className="w-12 h-12 flex items-center justify-center">
+                      <Image
+                        src={service.icon}
+                        alt={service.title}
+                        width={50}
+                        height={50}
+                        className="w-12 h-12 object-contain"
+                      />
+                    </div>
                     <div>
                       <div className="font-semibold text-sm">{service.title}</div>
                       <div className="text-xs text-muted-foreground">From £{service.pricing.from}</div>
@@ -196,7 +211,7 @@ export default function ServicesPage() {
 
     {/* Ready to Book Your Service - Parallax Section */}
     <ParallaxSection 
-      backgroundImage={backgroundImage}
+      backgroundImage="/wimages/Last%20Section/pexels-introspectivedsgn-6075509.jpg"
     >
       <div className="text-center space-y-8 text-white">
         <div className="space-y-4">

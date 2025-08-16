@@ -27,7 +27,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "battery-services",
     description: "Comprehensive battery testing, replacement, and charging system diagnostics for all vehicle types. We use professional-grade equipment to accurately diagnose battery health and charging system performance.",
     shortDescription: "Testing, replacement, and charging system diagnostics",
-    icon: "🔋",
+    icon: "/Icons-Web/Car-Battery-Services.png",
     pricing: {
       from: 45,
       to: 150,
@@ -70,7 +70,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "electrical-diagnostics", 
     description: "Advanced electrical fault finding using professional diagnostic equipment. We specialize in tracing complex electrical problems across all vehicle systems including engine management, lighting, and comfort systems.",
     shortDescription: "Advanced fault finding and electrical system analysis",
-    icon: "🔍",
+    icon: "/Icons-Web/Electrical-Diagnostic-Services-1.png",
     pricing: {
       from: 65,
       to: 120,
@@ -113,7 +113,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "alternator-repair",
     description: "Specialist alternator testing, repair, and replacement services. We service all types of alternators from standard units to high-output performance alternators for modified vehicles.",
     shortDescription: "Charging system repair and alternator replacement",
-    icon: "⚡",
+    icon: "/Icons-Web/Alternator-Repair-Services.png",
     pricing: {
       from: 85,
       to: 350,
@@ -156,7 +156,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "starter-motor",
     description: "Complete starter motor testing, repair, and replacement services. We handle everything from simple solenoid issues to complete starter motor rebuilds and high-torque starter upgrades.",
     shortDescription: "Starter motor testing, repair, and replacement",
-    icon: "🔧",
+    icon: "/Icons-Web/Starter-Motor-Services.png",
     pricing: {
       from: 75,
       to: 280,
@@ -199,7 +199,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "lighting-systems", 
     description: "Professional automotive lighting services including headlight restoration, LED conversions, and complete lighting system repairs. We work on all types of vehicle lighting from basic bulb replacement to complex HID and LED systems.",
     shortDescription: "Headlights, indicators, and interior lighting repair",
-    icon: "💡",
+    icon: "/Icons-Web/Lighting-System-Services.png",
     pricing: {
       from: 25,
       to: 200,
@@ -242,7 +242,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "security-systems",
     description: "Professional installation and repair of vehicle security systems including alarms, immobilizers, and central locking systems. We specialize in both factory and aftermarket security solutions.",
     shortDescription: "Alarm systems, immobilizers, and security installations",
-    icon: "🔒",
+    icon: "/Icons-Web/Car-Security-Services-2.png",
     pricing: {
       from: 95,
       to: 450,
@@ -285,7 +285,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "air-conditioning", 
     description: "Electrical diagnostics and repair for automotive air conditioning systems. We handle AC clutch problems, blower motor issues, and complete electrical system diagnostics for climate control.",
     shortDescription: "AC electrical systems and climate control repair",
-    icon: "❄️",
+    icon: "/Icons-Web/Air-Conditioning-Services.png",
     pricing: {
       from: 55,
       to: 180,
@@ -328,7 +328,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "wiring-repairs",
     description: "Professional automotive wiring repair and custom harness fabrication. We repair damaged wiring, upgrade electrical systems, and create custom wiring solutions for modified vehicles.",
     shortDescription: "Professional wiring repair and custom installations",
-    icon: "🔌",
+    icon: "/Icons-Web/Wiring-and-Harness-Services.png",
     pricing: {
       from: 45,
       to: 95,
@@ -371,7 +371,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "dashboard-repairs",
     description: "Specialized repair services for dashboard electronics, instrument clusters, and warning light systems. We handle everything from faulty gauges to complete dashboard electrical rebuilds.",
     shortDescription: "Instrument cluster and dashboard electrical repair",
-    icon: "📊",
+    icon: "/Icons-Web/Dashboard-and-Instrument-Repair.png",
     pricing: {
       from: 85,
       to: 250,
@@ -414,7 +414,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "trailer-electrics",
     description: "Professional trailer electrical installation and repair services. We install towbar electrics, repair trailer connections, and ensure your towing setup meets all safety requirements.",
     shortDescription: "Towbar wiring and trailer electrical systems",
-    icon: "🚛",
+    icon: "/Icons-Web/Van-Security-Services.png",
     pricing: {
       from: 95,
       to: 280,
@@ -457,7 +457,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     slug: "emergency",
     description: "24/7 emergency automotive electrical services across London. We provide rapid response for electrical breakdowns, jump starts, and urgent repairs to get you back on the road quickly.",
     shortDescription: "24/7 emergency automotive electrical repairs",
-    icon: "🚨",
+    icon: "/Icons-Web/Emergency-Car-Services.png",
     pricing: {
       from: 75,
       to: 150,

@@ -43,7 +43,7 @@ export default function ParallaxSection({
       
       {/* Content */}
       <div className="parallax-content">
-        <div className="container mx-auto px-4 py-16 lg:py-24 w-full">
+        <div className="container mx-auto px-4 py-8 lg:py-12 w-full">
           {children}
         </div>
       </div>
