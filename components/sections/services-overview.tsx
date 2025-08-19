@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Bounded from "@/components/common/bounded";
@@ -31,7 +32,13 @@ export default function ServicesOverview() {
             >
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-4 group-hover:bg-automotive-orange/20 transition-colors">
-                  <span className="text-2xl">{service.icon}</span>
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 object-contain"
+                  />
                 </div>
                 <CardTitle className="text-xl font-display text-foreground group-hover:text-automotive-orange transition-colors">
                   {service.title}

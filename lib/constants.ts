@@ -41,42 +41,42 @@ export const QUICK_SERVICES = [
     id: "battery",
     title: "Battery Services",
     description: "Testing, replacement, and charging system diagnostics",
-    icon: "🔋",
+    icon: "/Icons-Web/Battery Services.png",
     href: "/services/battery-services"
   },
   {
     id: "diagnostics", 
     title: "Electrical Diagnostics",
     description: "Advanced fault finding and electrical system analysis",
-    icon: "🔍",
+    icon: "/Icons-Web/Electrical Diagnostics.png",
     href: "/services/electrical-diagnostics"
   },
   {
     id: "alternator",
     title: "Alternator Repair", 
     description: "Charging system repair and alternator replacement",
-    icon: "⚡",
+    icon: "/Icons-Web/Alternator Repair.png",
     href: "/services/alternator-repair"
   },
   {
     id: "starter",
     title: "Starter Motor",
     description: "Starter motor testing, repair, and replacement",
-    icon: "🔧", 
+    icon: "/Icons-Web/Starter Motor Services.png", 
     href: "/services/starter-motor"
   },
   {
     id: "lighting",
     title: "Lighting Systems",
     description: "Headlights, indicators, and interior lighting repair",
-    icon: "💡",
+    icon: "/Icons-Web/Lighting Systems.png",
     href: "/services/lighting-systems"
   },
   {
     id: "emergency",
     title: "Emergency Services",
     description: "24/7 emergency automotive electrical repairs",
-    icon: "🚨",
+    icon: "/Icons-Web/Emergency Electrical Services.png",
     href: "/services/emergency"
   }
 ];
