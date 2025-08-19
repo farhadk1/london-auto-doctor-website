@@ -72,13 +72,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="space-y-6">
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 rounded-lg bg-automotive-orange/20 flex items-center justify-center">
+                <div className="w-32 h-32 rounded-lg bg-automotive-orange/20 flex items-center justify-center">
                   <Image
                     src={service.icon}
                     alt={service.title}
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 object-contain"
+                    width={80}
+                    height={80}
+                    className="w-20 h-20 object-contain"
                   />
                 </div>
                 <Badge 

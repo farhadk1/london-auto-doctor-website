@@ -31,13 +31,13 @@ export default function ServicesOverview() {
               className="group bg-card hover:shadow-automotive-lg transition-all duration-300 hover:border-automotive-orange/50"
             >
               <CardHeader>
-                <div className="w-16 h-16 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-4 group-hover:bg-automotive-orange/20 transition-colors">
+                <div className="w-20 h-20 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-4 group-hover:bg-automotive-orange/20 transition-colors">
                   <Image
                     src={service.icon}
                     alt={service.title}
-                    width={42}
-                    height={42}
-                    className="w-10 h-10 object-contain"
+                    width={55}
+                    height={55}
+                    className="w-12 h-12 object-contain"
                   />
                 </div>
                 <CardTitle className="text-xl font-display text-foreground group-hover:text-automotive-orange transition-colors">
