@@ -92,13 +92,13 @@ export default function ServicesPage() {
               >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-16 h-16 rounded-lg bg-automotive-orange/10 flex items-center justify-center group-hover:bg-automotive-orange/20 transition-colors">
+                    <div className="w-20 h-20 rounded-lg bg-automotive-orange/10 flex items-center justify-center group-hover:bg-automotive-orange/20 transition-colors">
                       <Image
                         src={service.icon}
                         alt={service.title}
-                        width={50}
-                        height={50}
-                        className="w-12 h-12 object-contain"
+                        width={65}
+                        height={65}
+                        className="w-16 h-16 object-contain"
                       />
                     </div>
                     <div className="text-right">
@@ -187,13 +187,13 @@ export default function ServicesPage() {
               <Card key={service.id} className="border-automotive-orange/20">
                 <CardContent className="p-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 flex items-center justify-center">
+                    <div className="w-16 h-16 flex items-center justify-center">
                       <Image
                         src={service.icon}
                         alt={service.title}
-                        width={50}
-                        height={50}
-                        className="w-12 h-12 object-contain"
+                        width={65}
+                        height={65}
+                        className="w-16 h-16 object-contain"
                       />
                     </div>
                     <div>
