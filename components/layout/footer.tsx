@@ -62,7 +62,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center space-x-2 text-sm">
                   <Mail className="h-4 w-4 text-automotive-orange" />
-                  <span className="text-muted-foreground">info@londonautodoctor.com</span>
+                  <a href="mailto:info@londonautodoctor.co.uk" className="text-muted-foreground hover:text-automotive-orange transition-colors">info@londonautodoctor.co.uk</a>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Footer() {
           
           <div className="mt-4 text-center">
             <p className="text-xs text-muted-foreground">
-              Licensed automotive electrician | Fully insured | Emergency services available 24/7
+              Licensed automotive electrician | Fully insured | Out hours Emergency Services available!
             </p>
           </div>
         </div>

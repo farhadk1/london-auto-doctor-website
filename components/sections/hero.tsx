@@ -75,7 +75,7 @@ export default function Hero() {
             </div>
             <div className="flex items-center space-x-2 text-sm">
               <Clock className="h-4 w-4 text-automotive-orange" />
-              <span className="text-foreground">Emergency 24/7</span>
+              <span className="text-foreground">Emergency Electrical Services</span>
             </div>
           </div>
 
@@ -147,7 +147,7 @@ export default function Hero() {
           {/* Floating badges */}
           <div className="absolute -top-4 -right-4 z-10">
             <Badge className="bg-automotive-orange text-white shadow-lg">
-              Emergency Available
+              Out hours Emergency Services available!
             </Badge>
           </div>
           

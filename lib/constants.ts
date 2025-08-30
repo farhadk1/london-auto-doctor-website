@@ -3,7 +3,7 @@ export const BUSINESS_INFO = {
   name: "London Auto Doctor",
   tagline: "Mobile Car Electrician",
   phone: "0800 123 4567",
-  email: "info@londonautodoctor.com",
+  email: "info@londonautodoctor.co.uk",
   address: "Mobile Service Across London",
   website: "https://londonautodoctor.com",
   
@@ -28,8 +28,8 @@ export const BUSINESS_INFO = {
   credentials: [
     "Licensed automotive electrician",
     "Fully insured",
-    "Emergency services available 24/7",
-    "Modern and classic cars",
+    "Out hours Emergency Services available!",
+    "German and Japanese cars specialist",
     "Hybrids and EVs",
     "Commercial vans"
   ]
@@ -75,7 +75,7 @@ export const QUICK_SERVICES = [
   {
     id: "emergency",
     title: "Emergency Services",
-    description: "24/7 emergency automotive electrical repairs",
+    description: "Out hours Emergency Services available!",
     icon: "/Icons-Web/Emergency Electrical Services.png",
     href: "/services/emergency"
   }
@@ -94,7 +94,7 @@ export const BUSINESS_STATS = [
     description: "Professional automotive electrical expertise"
   },
   {
-    number: "24/7",
+    number: "Out hours",
     label: "Emergency Service",
     description: "Available when you need us most"
   },

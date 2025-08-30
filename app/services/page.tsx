@@ -101,12 +101,14 @@ export default function ServicesPage() {
                         className="w-16 h-16 object-contain"
                       />
                     </div>
-                    <div className="text-right">
-                      <div className="text-sm text-muted-foreground">From</div>
-                      <div className="text-xl font-bold text-automotive-orange">
-                        £{service.pricing.from}
+                    {service.id === 'electrical-diagnostics' && (
+                      <div className="text-right">
+                        <div className="text-sm text-muted-foreground">From</div>
+                        <div className="text-xl font-bold text-automotive-orange">
+                          £{service.pricing.from}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   
                   <CardTitle className="text-xl font-display group-hover:text-automotive-orange transition-colors">
@@ -126,13 +128,12 @@ export default function ServicesPage() {
                     </div>
                     <Badge 
                       variant="outline" 
-                      className={service.availability === 'emergency' || service.availability === 'both' 
+                      className={service.availability === 'emergency' 
                         ? "border-red-500 text-red-500" 
                         : "border-blue-500 text-blue-500"
                       }
                     >
-                      {service.availability === 'emergency' ? 'Emergency' : 
-                       service.availability === 'both' ? '24/7' : 'Scheduled'}
+                      {service.availability === 'emergency' ? 'Emergency' : 'Scheduled'}
                     </Badge>
                   </div>
                   
@@ -170,11 +171,11 @@ export default function ServicesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
-              Emergency Services Available 24/7
+              Scheduled Services Available
             </h2>
             <p className="text-muted-foreground">
-              Don&apos;t let electrical problems leave you stranded. Our emergency services 
-              are available around the clock across London.
+              Don&apos;t let electrical problems leave you stranded. Our out hours emergency services 
+              are available across London.
             </p>
             <div className="flex items-center space-x-2 text-automotive-orange">
               <Phone className="h-5 w-5" />
@@ -198,7 +199,9 @@ export default function ServicesPage() {
                     </div>
                     <div>
                       <div className="font-semibold text-sm">{service.title}</div>
-                      <div className="text-xs text-muted-foreground">From £{service.pricing.from}</div>
+                      {service.id === 'electrical-diagnostics' && (
+                        <div className="text-xs text-muted-foreground">From £{service.pricing.from}</div>
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -250,7 +253,7 @@ export default function ServicesPage() {
           <div>✓ Professional Service</div>
           <div>✓ Transparent Pricing</div>
           <div>✓ 12 Month Warranty</div>
-          <div>✓ Emergency Available</div>
+          <div>✓ Scheduled Services</div>
         </div>
       </div>
     </ParallaxSection>

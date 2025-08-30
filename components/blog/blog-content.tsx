@@ -134,7 +134,7 @@ export default function BlogContent({ post }: BlogContentProps) {
                 <span className="font-semibold">📞 0800 123 4567</span>
               </div>
               <div className="flex items-center">
-                <span className="font-semibold">✉️ info@londonautodoctor.com</span>
+                <a href="mailto:info@londonautodoctor.co.uk" className="font-semibold hover:text-automotive-orange transition-colors">✉️ info@londonautodoctor.co.uk</a>
               </div>
             </div>
           </CardContent>

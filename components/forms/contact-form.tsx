@@ -373,7 +373,7 @@ export default function ContactForm() {
 
         <div className="mt-6 text-center text-sm text-muted-foreground">
           <p>📞 Need immediate help? Call us: <strong>0800 123 4567</strong></p>
-          <p>⚡ Emergency services available 24/7</p>
+          <p>⚡ Out hours Emergency Services available!</p>
         </div>
       </CardContent>
     </Card>

@@ -62,9 +62,9 @@ export const PARALLAX_CONTENT = {
   },
   
   emergency: {
-    title: "24/7 Emergency Automotive Electrical Service",
+    title: "Out hours Emergency Services available!",
     subtitle: "When you're stranded, we're here to help",
-    description: "Car won't start? Electrical failure? Our emergency response team is available 24/7 across London with average response times of 30-60 minutes.",
+    description: "Car won't start? Electrical failure? Our emergency response team provides out hours Emergency Services available! across London with average response times of 30-60 minutes.",
     buttons: [
       { text: "Call Emergency Now", href: "tel:08001234567", primary: true },
       { text: "Book Regular Service", href: "/contact", primary: false }

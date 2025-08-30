@@ -42,7 +42,7 @@ export default function Experience() {
 
             <p className="text-lg text-muted-foreground">
               We realize that you lead a busy life, so we have made it easy for
-              you to access professional automotive electrical services 24/7.
+              you to access professional automotive electrical services. Out hours Emergency Services available!
             </p>
           </div>
 
@@ -79,6 +79,18 @@ export default function Experience() {
               </div>
               <div className="text-sm text-muted-foreground">
                 • Security installations
+              </div>
+              <div className="text-sm text-muted-foreground">
+                • Coding and Programming
+              </div>
+              <div className="text-sm text-muted-foreground">
+                • Car Audio Systems & Radio
+              </div>
+              <div className="text-sm text-muted-foreground">
+                • Airbag Fault Diagnostics
+              </div>
+              <div className="text-sm text-muted-foreground">
+                • Windows & Mirrors
               </div>
             </div>
           </div>

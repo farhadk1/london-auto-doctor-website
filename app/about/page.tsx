@@ -195,6 +195,11 @@ export default function AboutPage() {
               "Security System Installation",
               "LED Lighting Upgrades",
               "Air Conditioning Electrical",
+              "Coding and Programming",
+              "Car Audio Systems & Radio",
+              "Airbag Fault Diagnostics",
+              "Central Locking Systems",
+              "Windows & Mirrors",
               "Fault Code Analysis",
               "Component Testing",
               "Circuit Analysis",
@@ -267,7 +272,7 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <Mail className="h-5 w-5 text-primary" />
-                <span className="font-semibold">info@londonautodoctor.com</span>
+                <a href="mailto:info@londonautodoctor.co.uk" className="font-semibold hover:text-automotive-orange transition-colors">info@londonautodoctor.co.uk</a>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <MapPin className="h-5 w-5 text-primary" />

@@ -52,10 +52,6 @@ const faqCategories = [
         question: "What type of battery do you recommend?",
         answer: "We recommend high-quality AGM or EFB batteries depending on your vehicle's specifications. We'll match the correct battery type, capacity, and dimensions for your specific make and model."
       },
-      {
-        question: "Do you dispose of old batteries responsibly?",
-        answer: "Yes, we properly recycle all old batteries in accordance with environmental regulations. Car batteries contain lead and acid which must be disposed of safely."
-      }
     ]
   },
   {
@@ -170,7 +166,7 @@ export default function FAQPage() {
         <Card>
           <CardContent className="p-8 text-center">
             <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Emergency Services Available</h2>
+            <h2 className="text-2xl font-bold mb-2">Out hours Emergency Services available!</h2>
             <p className="text-muted-foreground mb-6">
               Stranded with electrical problems? We offer emergency mobile services 
               for urgent situations outside normal business hours.

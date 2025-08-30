@@ -88,8 +88,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     : "border-blue-500 text-blue-500"
                   }
                 >
-                  {service.availability === 'emergency' ? 'Emergency Available' : 
-                   service.availability === 'both' ? '24/7 Available' : 'Scheduled Service'}
+                  {service.availability === 'emergency' ? 'Out hours Emergency Services available!' : 
+                   service.availability === 'both' ? 'Out hours Emergency Services available!' : 'Scheduled Service'}
                 </Badge>
               </div>
               
@@ -134,13 +134,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-sm text-muted-foreground">Price From</div>
-                  <div className="text-2xl font-bold text-automotive-orange">
-                    £{service.pricing.from}
-                    {service.pricing.to && ` - £${service.pricing.to}`}
+                {service.id === 'electrical-diagnostics' && (
+                  <div>
+                    <div className="text-sm text-muted-foreground">Price From</div>
+                    <div className="text-2xl font-bold text-automotive-orange">
+                      £{service.pricing.from}
+                      {service.pricing.to && ` - £${service.pricing.to}`}
+                    </div>
                   </div>
-                </div>
+                )}
                 <div>
                   <div className="text-sm text-muted-foreground">Duration</div>
                   <div className="font-semibold text-foreground flex items-center space-x-1">
@@ -235,13 +237,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
             {relatedServices.map((relatedService) => (
               <Card key={relatedService.id} className="group hover:border-automotive-orange/50 transition-colors">
                 <CardHeader>
-                  <div className="w-10 h-10 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-2">
+                  <div className="w-20 h-20 rounded-lg bg-automotive-orange/10 flex items-center justify-center mb-2 group-hover:bg-automotive-orange/20 transition-colors">
                     <Image
                       src={relatedService.icon}
                       alt={relatedService.title}
-                      width={24}
-                      height={24}
-                      className="w-6 h-6 object-contain"
+                      width={65}
+                      height={65}
+                      className="w-16 h-16 object-contain"
                     />
                   </div>
                   <CardTitle className="text-lg">{relatedService.title}</CardTitle>
@@ -249,10 +251,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <div className="text-automotive-orange font-semibold">
-                      From £{relatedService.pricing.from}
-                    </div>
-                    <Button asChild variant="ghost" size="sm">
+                    {relatedService.id === 'electrical-diagnostics' && (
+                      <div className="text-automotive-orange font-semibold">
+                        From £{relatedService.pricing.from}
+                      </div>
+                    )}
+                    <Button asChild variant="ghost" size="sm" className={relatedService.id !== 'electrical-diagnostics' ? 'ml-auto' : ''}>
                       <Link href={`/services/${relatedService.slug}`}>
                         View <ArrowRight className="h-4 w-4 ml-1" />
                       </Link>

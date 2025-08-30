@@ -61,7 +61,7 @@ export default function CTASection() {
               <div className="text-sm text-gray-300 space-y-1">
                 <div>Mon-Fri: 8 AM - 6 PM</div>
                 <div>Sat: 9 AM - 2 PM</div>
-                <div className="text-automotive-orange font-semibold">Emergency: 24/7</div>
+                <div className="text-automotive-orange font-semibold">Out hours Emergency Services available!</div>
               </div>
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function CTASection() {
           <div>✓ No Call-Out Charges</div>
           <div>✓ Same Day Service</div>
           <div>✓ 12 Month Warranty</div>
-          <div>✓ Emergency Available</div>
+          <div>✓ Out hours Emergency Services available!</div>
         </div>
       </div>
     </ParallaxSection>

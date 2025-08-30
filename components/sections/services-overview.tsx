@@ -70,7 +70,7 @@ export default function ServicesOverview() {
               Need Emergency Automotive Electrical Service?
             </h3>
             <p className="text-lg text-muted-foreground max-w-lg mx-auto">
-              Available 24/7 across London for urgent electrical repairs and diagnostics.
+              Out hours Emergency Services available! across London for urgent electrical repairs and diagnostics.
             </p>
           </div>
           
