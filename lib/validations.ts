@@ -57,6 +57,10 @@ export const contactFormSchema = z.object({
   termsAccepted: z
     .boolean()
     .refine((val) => val === true, "You must accept the terms and conditions"),
+  
+  recaptchaToken: z
+    .string()
+    .min(1, "Please complete the reCAPTCHA verification"),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

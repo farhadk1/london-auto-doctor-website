@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
 import { sendContactEmail } from '@/lib/email';
+import { verifyRecaptcha } from '@/lib/recaptcha';
 
 export async function POST(request: Request) {
   try {
@@ -20,6 +21,15 @@ export async function POST(request: Request) {
     }
 
     const data: ContactFormData = validationResult.data;
+
+    // Verify reCAPTCHA token
+    const isRecaptchaValid = await verifyRecaptcha(data.recaptchaToken);
+    if (!isRecaptchaValid) {
+      return NextResponse.json(
+        { error: 'reCAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
 
     try {
       // Send email notification
