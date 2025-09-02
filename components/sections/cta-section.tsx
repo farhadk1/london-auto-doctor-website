@@ -1,16 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import ParallaxSection from "@/components/common/parallax-section";
 import { BUSINESS_INFO } from "@/lib/constants";
-import { getParallaxImage } from "@/lib/parallax-images";
 import { Phone, Clock, MapPin } from "lucide-react";
 
 export default function CTASection() {
-  const pathname = usePathname();
-  const backgroundImage = getParallaxImage(pathname);
 
   return (
     <ParallaxSection 

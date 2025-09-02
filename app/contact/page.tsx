@@ -47,7 +47,7 @@ export default function ContactPage() {
               </h1>
               
               <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-                Ready to get your vehicle's electrical system back to perfect health? 
+                Ready to get your vehicle&apos;s electrical system back to perfect health? 
                 Contact our expert mobile car electricians today.
               </p>
             </div>

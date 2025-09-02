@@ -34,7 +34,7 @@ export default function BlogPage() {
             Automotive Electrical Blog
           </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Expert insights, practical tips, and professional advice from London's 
+            Expert insights, practical tips, and professional advice from London&apos;s 
             trusted mobile car electrician. Stay informed about automotive electrical 
             systems, maintenance, and troubleshooting.
           </p>

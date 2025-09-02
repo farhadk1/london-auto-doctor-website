@@ -1,9 +1,7 @@
 "use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,12 +10,9 @@ import ParallaxSection from "@/components/common/parallax-section";
 import { ALL_SERVICES } from "@/lib/services-data";
 import { BUSINESS_INFO } from "@/lib/constants";
 import { ArrowRight, Clock, Phone, CheckCircle } from "lucide-react";
-import { getParallaxImage } from "@/lib/parallax-images";
 
 
 export default function ServicesPage() {
-  const pathname = usePathname();
-  const backgroundImage = getParallaxImage(pathname);
   const emergencyServices = ALL_SERVICES.filter(s => 
     s.availability === 'emergency' || s.availability === 'both'
   );

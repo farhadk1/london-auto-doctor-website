@@ -1,16 +1,11 @@
 "use client";
 
-import type { Metadata } from "next";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Bounded from "@/components/common/bounded";
 import ParallaxSection from "@/components/common/parallax-section";
 import LightSection from "@/components/common/light-section";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Clock, Phone, Wrench, AlertCircle } from "lucide-react";
-import { getParallaxImage } from "@/lib/parallax-images";
 
 
 const faqCategories = [
@@ -101,8 +96,6 @@ const faqCategories = [
 ];
 
 export default function FAQPage() {
-  const pathname = usePathname();
-  const backgroundImage = getParallaxImage(pathname);
 
   return (
     <>
@@ -194,8 +187,8 @@ export default function FAQPage() {
             Still Have Questions?
           </h2>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-            Don't see your question answered here? Get in touch with London Auto Doctor 
-            directly. We're happy to discuss your specific automotive electrical needs 
+            Don&apos;t see your question answered here? Get in touch with London Auto Doctor 
+            directly. We&apos;re happy to discuss your specific automotive electrical needs 
             and provide personalized advice.
           </p>
         </div>

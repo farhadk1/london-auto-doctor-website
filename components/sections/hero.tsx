@@ -26,8 +26,8 @@ export default function Hero() {
       rightLight.classList.remove('car-light-emergency');
       
       // Force reflow to restart animation
-      leftLight.offsetHeight;
-      rightLight.offsetHeight;
+      void leftLight.offsetHeight;
+      void rightLight.offsetHeight;
       
       // Add emergency flash animation
       leftLight.classList.add('car-light-emergency');
