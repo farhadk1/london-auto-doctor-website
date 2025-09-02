@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
-import { BUSINESS_INFO } from '@/lib/constants';
+import { sendContactEmail } from '@/lib/email';
 
 export async function POST(request: Request) {
   try {
@@ -21,32 +21,47 @@ export async function POST(request: Request) {
 
     const data: ContactFormData = validationResult.data;
 
-    // Here you would typically:
-    // 1. Save to database
-    // 2. Send email notification
-    // 3. Send SMS if urgent
-    // 4. Integrate with CRM
-    
-    // For now, we'll simulate processing and log the data
-    console.log('Contact form submission received:', {
-      timestamp: new Date().toISOString(),
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      service: data.service,
-      urgency: data.urgency,
-      location: data.location,
-      vehicle: `${data.vehicleMake} ${data.vehicleModel} (${data.vehicleYear})`,
-      issue: data.issue.substring(0, 100) + '...',
-    });
+    try {
+      // Send email notification
+      await sendContactEmail(data);
+      
+      console.log('Contact form submission received and email sent:', {
+        timestamp: new Date().toISOString(),
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        urgency: data.urgency,
+        location: data.location,
+        vehicle: `${data.vehicleMake} ${data.vehicleModel} (${data.vehicleYear})`,
+      });
 
-    // Simulate email sending (in production, use a service like SendGrid, Resend, etc.)
-    const emailContent = generateEmailContent(data);
-    console.log('Email content generated:', emailContent.subject);
+      // Log SMS alert for urgent requests (SMS integration can be added later)
+      if (data.urgency === 'emergency') {
+        console.log(`SMS alert recommended for emergency request from ${data.name} in ${data.location}`);
+      }
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      
+      // Still log the form submission even if email fails
+      console.log('Contact form submission received (email failed):', {
+        timestamp: new Date().toISOString(),
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        urgency: data.urgency,
+        location: data.location,
+        vehicle: `${data.vehicleMake} ${data.vehicleModel} (${data.vehicleYear})`,
+      });
 
-    // Simulate SMS for urgent requests
-    if (data.urgency === 'emergency') {
-      console.log(`SMS alert sent for emergency request from ${data.name} in ${data.location}`);
+      return NextResponse.json(
+        { 
+          error: 'Failed to send email notification. Please call us directly.',
+          submissionId: generateSubmissionId(),
+        },
+        { status: 500 }
+      );
     }
 
     // Return success response
@@ -69,38 +84,6 @@ export async function POST(request: Request) {
   }
 }
 
-function generateEmailContent(data: ContactFormData) {
-  const subject = `${data.urgency === 'emergency' ? '🚨 EMERGENCY - ' : ''}New Service Request from ${data.name}`;
-  
-  const body = `
-New Service Request Details:
-
-CUSTOMER INFORMATION:
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}
-Location: ${data.location}
-Preferred Contact: ${data.preferredContact}
-
-VEHICLE INFORMATION:
-Make: ${data.vehicleMake}
-Model: ${data.vehicleModel}
-Year: ${data.vehicleYear}
-
-SERVICE DETAILS:
-Service Required: ${data.service}
-Urgency Level: ${data.urgency}
-Issue Description: ${data.issue}
-
-RESPONSE PRIORITY: ${data.urgency === 'emergency' ? 'IMMEDIATE' : data.urgency === 'within-24h' ? 'HIGH' : 'NORMAL'}
-
---
-Submitted via ${BUSINESS_INFO.website}
-Timestamp: ${new Date().toLocaleString('en-GB')}
-  `;
-
-  return { subject, body };
-}
 
 function generateSubmissionId(): string {
   const timestamp = Date.now().toString(36);
