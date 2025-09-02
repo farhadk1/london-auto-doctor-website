@@ -16,7 +16,7 @@ export async function sendContactEmail(data: ContactFormData) {
   
   const mailOptions = {
     from: process.env.SMTP_USER!,
-    to: process.env.SMTP_USER!,
+    to: 'info@londonautodoctor.co.uk',
     subject: emailTemplate.subject,
     text: emailTemplate.text,
     html: emailTemplate.html,

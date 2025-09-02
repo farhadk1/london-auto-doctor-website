@@ -60,7 +60,7 @@ export const contactFormSchema = z.object({
   
   recaptchaToken: z
     .string()
-    .min(1, "Please complete the reCAPTCHA verification"),
+    .optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

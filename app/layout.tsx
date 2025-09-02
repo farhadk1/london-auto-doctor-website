@@ -63,7 +63,7 @@ export default function RootLayout({
         className="min-h-screen bg-background font-body antialiased"
       >
         <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          src="https://www.google.com/recaptcha/api.js?render=6LcWBrorAAAAAHnfsOGn_fJ6vqBTsV0c4CePZzVE"
           strategy="afterInteractive"
         />
         <div className="relative flex min-h-screen flex-col">

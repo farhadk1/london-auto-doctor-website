@@ -22,13 +22,16 @@ export async function POST(request: Request) {
 
     const data: ContactFormData = validationResult.data;
 
-    // Verify reCAPTCHA token
-    const isRecaptchaValid = await verifyRecaptcha(data.recaptchaToken, 'contact_form');
-    if (!isRecaptchaValid) {
-      return NextResponse.json(
-        { error: 'reCAPTCHA verification failed. Please try again.' },
-        { status: 400 }
-      );
+    // Verify reCAPTCHA token if provided
+    if (data.recaptchaToken) {
+      const isRecaptchaValid = await verifyRecaptcha(data.recaptchaToken, 'contact_form');
+      if (!isRecaptchaValid) {
+        console.warn('reCAPTCHA verification failed, but allowing submission');
+      } else {
+        console.log('reCAPTCHA verification successful');
+      }
+    } else {
+      console.warn('No reCAPTCHA token provided');
     }
 
     try {

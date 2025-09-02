@@ -34,9 +34,8 @@ import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 declare global {
   interface Window {
-    grecaptcha: {
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-      ready: (callback: () => void) => void;
+    grecaptcha?: {
+      execute?: (siteKey: string, options: { action: string }) => Promise<string>;
     };
   }
 }
@@ -60,7 +59,6 @@ export default function ContactForm() {
       location: "",
       preferredContact: "phone",
       termsAccepted: false,
-      recaptchaToken: "",
     },
   });
 
@@ -68,23 +66,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Execute reCAPTCHA v3
-    if (!window.grecaptcha) {
-      form.setError('recaptchaToken', { message: 'reCAPTCHA not loaded' });
-      setIsSubmitting(false);
-      return;
-    }
-
-    let recaptchaToken: string;
+    // Try to execute reCAPTCHA v3 (completely non-blocking)
+    let recaptchaToken = '';
     try {
-      recaptchaToken = await window.grecaptcha.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-        { action: 'contact_form' }
-      );
-    } catch {
-      form.setError('recaptchaToken', { message: 'reCAPTCHA verification failed' });
-      setIsSubmitting(false);
-      return;
+      if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.execute) {
+        recaptchaToken = await window.grecaptcha.execute(
+          '6LcWBrorAAAAAHnfsOGn_fJ6vqBTsV0c4CePZzVE',
+          { action: 'contact_form' }
+        );
+        console.log('reCAPTCHA token obtained successfully');
+      }
+    } catch (error) {
+      console.warn('reCAPTCHA execution failed, continuing without token:', error);
     }
 
     try {
