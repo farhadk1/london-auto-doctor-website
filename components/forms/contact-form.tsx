@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import ReCAPTCHA from "react-google-recaptcha";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
@@ -33,10 +32,18 @@ import {
 } from "@/lib/validations";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      ready: (callback: () => void) => void;
+    };
+  }
+}
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -61,9 +68,21 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Check if reCAPTCHA is completed
-    if (!data.recaptchaToken) {
-      form.setError('recaptchaToken', { message: 'Please complete the reCAPTCHA verification' });
+    // Execute reCAPTCHA v3
+    if (!window.grecaptcha) {
+      form.setError('recaptchaToken', { message: 'reCAPTCHA not loaded' });
+      setIsSubmitting(false);
+      return;
+    }
+
+    let recaptchaToken: string;
+    try {
+      recaptchaToken = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        { action: 'contact_form' }
+      );
+    } catch {
+      form.setError('recaptchaToken', { message: 'reCAPTCHA verification failed' });
       setIsSubmitting(false);
       return;
     }
@@ -74,7 +93,7 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, recaptchaToken }),
       });
 
       if (!response.ok) {
@@ -83,7 +102,6 @@ export default function ContactForm() {
 
       setSubmitStatus('success');
       form.reset();
-      recaptchaRef.current?.reset();
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
@@ -360,30 +378,6 @@ export default function ContactForm() {
                       </FormLabel>
                       <FormMessage />
                     </div>
-                  </FormItem>
-                )}
-              />
-
-              {/* reCAPTCHA */}
-              <FormField
-                control={form.control}
-                name="recaptchaToken"
-                render={({ field }) => (
-                  <FormItem>
-                    <div className="flex justify-center">
-                      <ReCAPTCHA
-                        ref={recaptchaRef}
-                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                        onChange={(token) => {
-                          field.onChange(token || '');
-                          if (token) {
-                            form.clearErrors('recaptchaToken');
-                          }
-                        }}
-                        onError={() => form.setError('recaptchaToken', { message: 'reCAPTCHA verification failed' })}
-                      />
-                    </div>
-                    <FormMessage className="text-center" />
                   </FormItem>
                 )}
               />

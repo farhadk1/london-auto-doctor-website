@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const data: ContactFormData = validationResult.data;
 
     // Verify reCAPTCHA token
-    const isRecaptchaValid = await verifyRecaptcha(data.recaptchaToken);
+    const isRecaptchaValid = await verifyRecaptcha(data.recaptchaToken, 'contact_form');
     if (!isRecaptchaValid) {
       return NextResponse.json(
         { error: 'reCAPTCHA verification failed. Please try again.' },
