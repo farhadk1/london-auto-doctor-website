@@ -159,7 +159,7 @@ export default function FAQPage() {
         <Card>
           <CardContent className="p-8 text-center">
             <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Out hours Emergency Services available!</h2>
+            <h2 className="text-2xl font-bold mb-2">Out of hours Emergency Services available!</h2>
             <p className="text-muted-foreground mb-6">
               Stranded with electrical problems? We offer emergency mobile services 
               for urgent situations outside normal business hours.

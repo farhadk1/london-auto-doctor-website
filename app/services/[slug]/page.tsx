@@ -88,8 +88,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     : "border-blue-500 text-blue-500"
                   }
                 >
-                  {service.availability === 'emergency' ? 'Out hours Emergency Services available!' : 
-                   service.availability === 'both' ? 'Out hours Emergency Services available!' : 'Scheduled Service'}
+                  {service.availability === 'emergency' ? 'Out of hours Emergency Services available!' : 
+                   service.availability === 'both' ? 'Out of hours Emergency Services available!' : 'Scheduled Service'}
                 </Badge>
               </div>
               

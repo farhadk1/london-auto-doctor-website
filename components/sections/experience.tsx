@@ -42,7 +42,7 @@ export default function Experience() {
 
             <p className="text-lg text-muted-foreground">
               We realize that you lead a busy life, so we have made it easy for
-              you to access professional automotive electrical services. Out hours Emergency Services available!
+              you to access professional automotive electrical services. Out of hours Emergency Services available!
             </p>
           </div>
 

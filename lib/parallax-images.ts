@@ -62,9 +62,9 @@ export const PARALLAX_CONTENT = {
   },
   
   emergency: {
-    title: "Out hours Emergency Services available!",
+    title: "Out of hours Emergency Services available!",
     subtitle: "When you're stranded, we're here to help",
-    description: "Car won't start? Electrical failure? Our emergency response team provides out hours Emergency Services available! across London with average response times of 30-60 minutes.",
+    description: "Car won't start? Electrical failure? Our emergency response team provides out of hours Emergency Services available! across London with average response times of 30-60 minutes.",
     buttons: [
       { text: "Call Emergency Now", href: "tel:08001234567", primary: true },
       { text: "Book Regular Service", href: "/contact", primary: false }

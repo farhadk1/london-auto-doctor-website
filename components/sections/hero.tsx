@@ -147,7 +147,7 @@ export default function Hero() {
           {/* Floating badges */}
           <div className="absolute -top-4 -right-4 z-10">
             <Badge className="bg-automotive-orange text-white shadow-lg">
-              Out hours Emergency Services available!
+              Out of hours Emergency Services available!
             </Badge>
           </div>
           

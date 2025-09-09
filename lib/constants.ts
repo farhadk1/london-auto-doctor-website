@@ -28,7 +28,7 @@ export const BUSINESS_INFO = {
   credentials: [
     "Licensed automotive electrician",
     "Fully insured",
-    "Out hours Emergency Services available!",
+    "Out of hours Emergency Services available!",
     "German and Japanese cars specialist",
     "Hybrids and EVs",
     "Commercial vans"
@@ -75,7 +75,7 @@ export const QUICK_SERVICES = [
   {
     id: "emergency",
     title: "Emergency Services",
-    description: "Out hours Emergency Services available!",
+    description: "Out of hours Emergency Services available!",
     icon: "/Icons-Web/Emergency Electrical Services.png",
     href: "/services/emergency"
   }

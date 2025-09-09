@@ -52,7 +52,7 @@ export default function Error({
               Call us: 0800 123 4567
             </p>
             <p className="text-xs mt-2">
-              Out hours Emergency Services available!
+              Out of hours Emergency Services available!
             </p>
           </div>
         </div>

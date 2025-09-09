@@ -466,8 +466,8 @@ export const ALL_SERVICES: ServiceCategory[] = [
     title: "Emergency Electrical Services",
     slug: "emergency",
     description:
-      "Out hours Emergency Services available! across London. We provide rapid response for electrical breakdowns, jump starts, and urgent repairs to get you back on the road quickly.",
-    shortDescription: "Out hours Emergency Services available!",
+      "Out of hours Emergency Services available! across London. We provide rapid response for electrical breakdowns, jump starts, and urgent repairs to get you back on the road quickly.",
+    shortDescription: "Out of hours Emergency Services available!",
     icon: "/Icons-Web/Emergency Electrical Services.png",
     pricing: {
       from: 75,

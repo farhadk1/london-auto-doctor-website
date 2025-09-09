@@ -169,7 +169,7 @@ export default function Footer() {
           
           <div className="mt-4 text-center">
             <p className="text-xs text-muted-foreground">
-              Licensed automotive electrician | Fully insured | Out hours Emergency Services available!
+              Licensed automotive electrician | Fully insured | Out of hours Emergency Services available!
             </p>
           </div>
         </div>
