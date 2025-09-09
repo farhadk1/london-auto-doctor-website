@@ -248,7 +248,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     description:
       "Professional installation and repair of vehicle security systems including alarms, immobilizers, and central locking systems. We specialize in both factory and aftermarket security solutions.",
     shortDescription: "Alarm systems, immobilizers, and security installations",
-    icon: "/Icons-Web/Security & Alarm Systems-2.png",
+    icon: "/Icons-Web/Security Alarm Systems-2.png",
     pricing: {
       from: 95,
       to: 450,
@@ -336,7 +336,7 @@ export const ALL_SERVICES: ServiceCategory[] = [
     description:
       "Professional automotive wiring repair and custom harness fabrication. We repair damaged wiring, upgrade electrical systems, and create custom wiring solutions for modified vehicles.",
     shortDescription: "Professional wiring repair and custom installations",
-    icon: "/Icons-Web/Wiring & Harness Repair.png",
+    icon: "/Icons-Web/Wiring Harness Repair.png",
     pricing: {
       from: 45,
       to: 95,
@@ -637,7 +637,6 @@ export const ALL_SERVICES: ServiceCategory[] = [
     ],
     warranty: "6 months on diagnostic and repair work",
   },
-
 
   {
     id: "windows-mirrors",
