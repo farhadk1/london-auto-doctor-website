@@ -17,7 +17,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Contact Us | London Auto Doctor - Mobile Car Electrician",
-  description: "Contact London Auto Doctor for professional mobile car electrician services across London. Emergency services available 24/7. Call 0800 123 4567 or book online.",
+  description: "Contact London Auto Doctor for professional mobile car electrician services across London. Out of hours Emergency Services available! Call 0800 123 4567 or book online.",
   keywords: [
     "contact car electrician London",
     "mobile car electrician contact",
@@ -53,15 +53,21 @@ export default function ContactPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="flex items-center justify-center space-x-2 bg-automotive-orange text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+              <a 
+                href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}
+                className="flex items-center justify-center space-x-2 bg-automotive-orange hover:bg-automotive-orange/90 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition-colors cursor-pointer"
+              >
                 <Phone className="h-5 w-5" />
                 <span>{BUSINESS_INFO.phone}</span>
-              </div>
+              </a>
               
-              <div className="flex items-center justify-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full">
+              <a 
+                href={`mailto:${BUSINESS_INFO.email}`}
+                className="flex items-center justify-center space-x-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full transition-colors cursor-pointer"
+              >
                 <Mail className="h-5 w-5 text-automotive-orange" />
                 <span>{BUSINESS_INFO.email}</span>
-              </div>
+              </a>
             </div>
           </div>
         </Bounded>
@@ -77,10 +83,13 @@ export default function ContactPage() {
                 <Phone className="h-6 w-6 text-automotive-orange" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Call Us</h3>
-              <p className="text-2xl font-bold text-automotive-orange mb-1">
+              <a 
+                href={`tel:${BUSINESS_INFO.phone.replace(/\s/g, '')}`}
+                className="text-2xl font-bold text-automotive-orange mb-1 hover:underline block"
+              >
                 {BUSINESS_INFO.phone}
-              </p>
-              <p className="text-sm text-muted-foreground">24/7 Emergency Line</p>
+              </a>
+              <p className="text-sm text-muted-foreground">Out of hours Emergency Services available!</p>
             </CardContent>
           </Card>
 
@@ -91,9 +100,12 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-automotive-orange" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Email Us</h3>
-              <p className="text-automotive-orange font-semibold mb-1">
+              <a 
+                href={`mailto:${BUSINESS_INFO.email}`}
+                className="text-automotive-orange font-semibold mb-1 hover:underline block"
+              >
                 {BUSINESS_INFO.email}
-              </p>
+              </a>
               <p className="text-sm text-muted-foreground">Quick Response</p>
             </CardContent>
           </Card>
@@ -108,7 +120,7 @@ export default function ContactPage() {
               <div className="text-sm text-muted-foreground space-y-1">
                 <p>Mon-Fri: 8 AM - 6 PM</p>
                 <p>Sat: 9 AM - 2 PM</p>
-                <p className="text-automotive-orange font-semibold">Emergency: 24/7</p>
+                <p className="text-automotive-orange font-semibold">Emergency: Out of hours</p>
               </div>
             </CardContent>
           </Card>
@@ -153,7 +165,7 @@ export default function ContactPage() {
                   "15+ years of professional experience",
                   "Licensed and fully insured",
                   "Mobile service across all London boroughs",
-                  "Emergency services available 24/7",
+                  "Out of hours Emergency Services available!",
                   "No call-out charges",
                   "12-month warranty on parts",
                   "Same day service available"
@@ -176,7 +188,7 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-red-600 dark:text-red-300 mb-4">
-                  Car won&apos;t start? Electrical failure? We provide 24/7 emergency 
+                  Car won&apos;t start? Electrical failure? We provide out of hours emergency 
                   automotive electrical services across London.
                 </p>
                 <div className="space-y-2">
