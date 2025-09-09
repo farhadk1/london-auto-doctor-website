@@ -110,8 +110,12 @@ export const SERVICE_OPTIONS = [
   { value: "air-conditioning", label: "Air Conditioning Electrical" },
   { value: "wiring-repairs", label: "Wiring & Harness Repair" },
   { value: "dashboard-repairs", label: "Dashboard & Instrument Repair" },
-  { value: "trailer-electrics", label: "Trailer & Towbar Electrics" },
+  { value: "van-security-services", label: "Van Security Services" },
   { value: "emergency-services", label: "Emergency Services" },
+  { value: "coding-programming", label: "Coding and Programming" },
+  { value: "car-audio-radio", label: "Car Audio Systems & Radio" },
+  { value: "airbag-diagnostics", label: "Airbag Fault Diagnostics" },
+  { value: "windows-mirrors", label: "Windows & Mirrors" },
   { value: "other", label: "Other / Not Sure" },
 ];
 
